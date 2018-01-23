@@ -2,6 +2,7 @@
 *.o
 *.swp
 *.out
+main
 
 # Not ignore all Makefile
 !**/Makefile
@@ -12,5 +13,5 @@ algorithm/*
 !algorithm/*.cpp
 
 # Ignore all build and bin directory
-bin/
-build/
+[Bb]in/
+[Bb]uild/
