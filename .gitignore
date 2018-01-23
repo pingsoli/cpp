@@ -1,0 +1,16 @@
+# Ignore compile middleware
+*.o
+*.swp
+*.out
+
+# Not ignore all Makefile
+!**/Makefile
+
+# Specific directory
+algorithm/*
+!algorithm/Makefile
+!algorithm/*.cpp
+
+# Ignore all build and bin directory
+bin/
+build/
