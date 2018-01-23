@@ -179,20 +179,20 @@ class Person_PhoneNumber : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // required string nubmer = 1;
-  bool has_nubmer() const;
-  void clear_nubmer();
-  static const int kNubmerFieldNumber = 1;
-  const ::std::string& nubmer() const;
-  void set_nubmer(const ::std::string& value);
+  // required string number = 1;
+  bool has_number() const;
+  void clear_number();
+  static const int kNumberFieldNumber = 1;
+  const ::std::string& number() const;
+  void set_number(const ::std::string& value);
   #if LANG_CXX11
-  void set_nubmer(::std::string&& value);
+  void set_number(::std::string&& value);
   #endif
-  void set_nubmer(const char* value);
-  void set_nubmer(const char* value, size_t size);
-  ::std::string* mutable_nubmer();
-  ::std::string* release_nubmer();
-  void set_allocated_nubmer(::std::string* nubmer);
+  void set_number(const char* value);
+  void set_number(const char* value, size_t size);
+  ::std::string* mutable_number();
+  ::std::string* release_number();
+  void set_allocated_number(::std::string* number);
 
   // optional .tutorial.Person.PhoneType type = 2 [default = HOME];
   bool has_type() const;
@@ -203,15 +203,15 @@ class Person_PhoneNumber : public ::google::protobuf::Message /* @@protoc_insert
 
   // @@protoc_insertion_point(class_scope:tutorial.Person.PhoneNumber)
  private:
-  void set_has_nubmer();
-  void clear_has_nubmer();
+  void set_has_number();
+  void clear_has_number();
   void set_has_type();
   void clear_has_type();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr nubmer_;
+  ::google::protobuf::internal::ArenaStringPtr number_;
   int type_;
   friend struct ::protobuf_addressbook_2eproto::TableStruct;
   friend void ::protobuf_addressbook_2eproto::InitDefaultsPerson_PhoneNumberImpl();
@@ -532,67 +532,67 @@ class AddressBook : public ::google::protobuf::Message /* @@protoc_insertion_poi
 #endif  // __GNUC__
 // Person_PhoneNumber
 
-// required string nubmer = 1;
-inline bool Person_PhoneNumber::has_nubmer() const {
+// required string number = 1;
+inline bool Person_PhoneNumber::has_number() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Person_PhoneNumber::set_has_nubmer() {
+inline void Person_PhoneNumber::set_has_number() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Person_PhoneNumber::clear_has_nubmer() {
+inline void Person_PhoneNumber::clear_has_number() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Person_PhoneNumber::clear_nubmer() {
-  nubmer_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_nubmer();
+inline void Person_PhoneNumber::clear_number() {
+  number_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_number();
 }
-inline const ::std::string& Person_PhoneNumber::nubmer() const {
-  // @@protoc_insertion_point(field_get:tutorial.Person.PhoneNumber.nubmer)
-  return nubmer_.GetNoArena();
+inline const ::std::string& Person_PhoneNumber::number() const {
+  // @@protoc_insertion_point(field_get:tutorial.Person.PhoneNumber.number)
+  return number_.GetNoArena();
 }
-inline void Person_PhoneNumber::set_nubmer(const ::std::string& value) {
-  set_has_nubmer();
-  nubmer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:tutorial.Person.PhoneNumber.nubmer)
+inline void Person_PhoneNumber::set_number(const ::std::string& value) {
+  set_has_number();
+  number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:tutorial.Person.PhoneNumber.number)
 }
 #if LANG_CXX11
-inline void Person_PhoneNumber::set_nubmer(::std::string&& value) {
-  set_has_nubmer();
-  nubmer_.SetNoArena(
+inline void Person_PhoneNumber::set_number(::std::string&& value) {
+  set_has_number();
+  number_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:tutorial.Person.PhoneNumber.nubmer)
+  // @@protoc_insertion_point(field_set_rvalue:tutorial.Person.PhoneNumber.number)
 }
 #endif
-inline void Person_PhoneNumber::set_nubmer(const char* value) {
+inline void Person_PhoneNumber::set_number(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_nubmer();
-  nubmer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:tutorial.Person.PhoneNumber.nubmer)
+  set_has_number();
+  number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:tutorial.Person.PhoneNumber.number)
 }
-inline void Person_PhoneNumber::set_nubmer(const char* value, size_t size) {
-  set_has_nubmer();
-  nubmer_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void Person_PhoneNumber::set_number(const char* value, size_t size) {
+  set_has_number();
+  number_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:tutorial.Person.PhoneNumber.nubmer)
+  // @@protoc_insertion_point(field_set_pointer:tutorial.Person.PhoneNumber.number)
 }
-inline ::std::string* Person_PhoneNumber::mutable_nubmer() {
-  set_has_nubmer();
-  // @@protoc_insertion_point(field_mutable:tutorial.Person.PhoneNumber.nubmer)
-  return nubmer_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* Person_PhoneNumber::mutable_number() {
+  set_has_number();
+  // @@protoc_insertion_point(field_mutable:tutorial.Person.PhoneNumber.number)
+  return number_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Person_PhoneNumber::release_nubmer() {
-  // @@protoc_insertion_point(field_release:tutorial.Person.PhoneNumber.nubmer)
-  clear_has_nubmer();
-  return nubmer_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* Person_PhoneNumber::release_number() {
+  // @@protoc_insertion_point(field_release:tutorial.Person.PhoneNumber.number)
+  clear_has_number();
+  return number_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Person_PhoneNumber::set_allocated_nubmer(::std::string* nubmer) {
-  if (nubmer != NULL) {
-    set_has_nubmer();
+inline void Person_PhoneNumber::set_allocated_number(::std::string* number) {
+  if (number != NULL) {
+    set_has_number();
   } else {
-    clear_has_nubmer();
+    clear_has_number();
   }
-  nubmer_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), nubmer);
-  // @@protoc_insertion_point(field_set_allocated:tutorial.Person.PhoneNumber.nubmer)
+  number_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), number);
+  // @@protoc_insertion_point(field_set_allocated:tutorial.Person.PhoneNumber.number)
 }
 
 // optional .tutorial.Person.PhoneType type = 2 [default = HOME];
