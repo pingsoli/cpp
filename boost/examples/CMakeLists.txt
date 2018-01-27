@@ -17,7 +17,7 @@ if (Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
 endif()
 
-set(EXECUTABLE_OUTPUT_PATH ${BINARY_DIR}/bin)
+#set(EXECUTABLE_OUTPUT_PATH ${BINARY_DIR}/bin)
 
 ##############################
 add_executable(main
@@ -36,3 +36,14 @@ target_link_libraries(coroutine
   ${BOOST_ROOT}/lib/libboost_thread.a
 )
 
+##############################
+add_executable(smart_pointer
+  smart_pointer.cpp
+)
+
+##############################
+add_executable(shared_ptr
+  shared_ptr.cpp
+)
+
+##############################

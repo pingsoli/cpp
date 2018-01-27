@@ -1,0 +1,56 @@
+#include <cstdlib>
+#include <iostream>
+#include <memory>
+
+#include <boost/coroutine2/all.hpp>
+
+#ifdef BOOST_MSVC
+__declspec(noinline) void access(char *buf);
+#else // GCC
+void access(char* buf) __attribute__((noinline));
+#endif
+
+void access(char *buf) {
+  buf[0] = '\0';
+}
+
+void bar(int i) {
+  char buf[4 * 1024];
+
+  if (i > 0) {
+    access(buf);
+    std::cout << i << ". iteration" << std::endl;
+    bar(i - 1);
+  }
+}
+
+int main()
+{
+  typedef boost::context::fixedsize_stack::traits_type fix_type;
+  typedef boost::coroutines2::coroutine<void> coro_t;
+  int count = 384;
+
+#if defined(BOOST_USE_SEGMENTED_STACKS)
+  std::cout << "using segmented_stack stacks: allocates " << count
+            << " * 4kB == " << 4 * count << "kB on stack, ";
+  std::cout << "initial stack size = " 
+            << boost::context::segemented::default_size() / 1024 << "kB"
+            << std::endl;
+  std::cout << "application should not fail" << std::endl;
+#else
+  std::cout << "using standard stacks: allocates "
+            << count << " * 4kB == " << 4 * count << "kB on stack, ";
+  std::cout << "initial stack size = "
+            << fix_type::default_size() / 1024 << "kB" << std::endl;
+  std::cout << "application might fail" << std::endl;
+#endif
+
+  coro_t::pull_type coro{
+    [count](coro_t::push_type& coro) {
+      bar(count);
+    }};
+
+  std::cout << "main: done" << std::endl;
+
+  return 0;
+}

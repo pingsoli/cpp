@@ -15,3 +15,6 @@ algorithm/*
 # Ignore all build and bin directory
 [Bb]in/
 [Bb]uild/
+
+# ctags file
+tags
