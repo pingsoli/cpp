@@ -58,6 +58,7 @@ void simple_example()
 
   // Copy what? copy to where? how to receive?
   // regard coroutine as a iterable object.
+  // overload std::begin() and std::end()
   // when to call writer()?
   std::copy(begin(words), end(words), begin(writer));
 }

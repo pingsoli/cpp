@@ -123,7 +123,7 @@ void coro_multi_value(coroutine<std::tuple<int, std::string>>::pull_type& source
   std::tie(item, data) = source.get();
   std::cout << item << " " << data << '\n';
 
-// Use std::tie to unpack the tuple
+// Use std::tie() to unpack the tuple
 //  auto args = source.get();
 //  std::cout << std::get<0>(args) << " " << std::get<1>(args) << '\n';
 
@@ -215,6 +215,23 @@ void coro_stack_unwind()
 
 // #####################################################################
 
+// Range iterator
+void ranger_iterator()
+{
+  typedef boost::coroutines2::coroutine<int> coro_t;
+  coro_t::push_type sink(
+    [&](coro_t::pull_type& source) {
+      while (source) {
+        std::cout << source.get() << " ";
+        source();
+      }
+    });
+
+  std::vector<int> v{1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
+  std::copy(begin(v), end(v), begin(sink));
+  std::cout << '\n';
+}
+
 int main(int argc, char** argv)
 {
 //  coro_without_value_test();
@@ -223,7 +240,9 @@ int main(int argc, char** argv)
 //  coro_with_exception_test();
 //  coro_stack_unwind();
 
-  coro_with_lambda_expression();
+//  coro_with_lambda_expression();
+
+  ranger_iterator();
 
   return 0;
 }
