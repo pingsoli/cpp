@@ -20,30 +20,11 @@ endif()
 #set(EXECUTABLE_OUTPUT_PATH ${BINARY_DIR}/bin)
 
 ##############################
-add_executable(main
-  main.cpp)
-
-target_link_libraries(main
-  ${BOOST_ROOT}/lib/libboost_regex.a)
-
-##############################
-add_executable(coroutine
-  coroutine.cpp)
-
-target_link_libraries(coroutine
-  ${BOOST_ROOT}/lib/libboost_coroutine.a
-  ${BOOST_ROOT}/lib/libboost_context.a
-  ${BOOST_ROOT}/lib/libboost_thread.a
+add_executable(shared_ptr
+  shared_ptr.cpp
 )
 
 ##############################
 add_executable(smart_pointer
   smart_pointer.cpp
 )
-
-##############################
-add_executable(shared_ptr
-  shared_ptr.cpp
-)
-
-##############################
