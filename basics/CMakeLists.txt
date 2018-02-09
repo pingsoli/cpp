@@ -15,3 +15,7 @@ add_executable(ordered_and_unordered_map
   ordered_and_unordered_map.cpp
 )
 
+##############################
+add_executable(operator_new
+  operator_new.cpp
+)
