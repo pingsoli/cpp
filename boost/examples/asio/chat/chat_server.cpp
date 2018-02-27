@@ -1,4 +1,5 @@
 /*
+ ***********************************************************************
  * chat_session:
  *   deal with the connection
  *   decode header -> decode body -> write message
@@ -14,17 +15,20 @@
  * Observer Design Pattern
  *   chat_session is Observer.
  *   chat_room is Subject.
+ * in UML, chat_session and chat_room are aggregation relatioship.
  *
+ ***********************************************************************
  * Sumary:
  * chat_session 'is a' chat_participant, can be joined into chat_room,
  * chat_room 'has' multiple chat_session
  *
- * in UML, chat_session and chat_room are aggregation relatioship.
- *
+ ***********************************************************************
  * Undergoing:
  * 1) callback function parameter add reference
- *    [](boost::system::error_code& ec, std::size_t ) {}
+ *    [](boost::system::error_code& ec, std::size_t ) {}  // Error
  *    incurred many strange errors in g++, but located the error place.
+ *
+ ***********************************************************************
  */
 #include <cstdlib>
 #include <deque>
