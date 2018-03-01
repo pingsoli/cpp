@@ -1,6 +1,16 @@
+///////////////////////////////////////////////////////////////////////////////
+//
 // Item 2: Prefer consts, enums, and inlines to #defines
 // 1) For simple constants, prefer const objects or enums to #defines
 // 2) For function-like macros, prefer inline functions to #defines
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+// Why not use #define ?
+// #define is dealt by preprocessor, it's not part of language.
+// it's difficult to debug.
+//
+///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 #include <string>

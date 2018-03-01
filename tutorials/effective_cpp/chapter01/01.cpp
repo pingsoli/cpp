@@ -1,7 +1,7 @@
 // Item 1: View C++ as a federation of languages.
 
 /*
- * Four sublanguages:
+ * keep in mind four sublanguages:
  * 1) C
  * 2) Object-oriented C++
  * 3) Template C++
