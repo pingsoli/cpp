@@ -1,0 +1,15 @@
+cmake_minimum_required( VERSION 3.4.1 )
+
+set( CMAKE_CXX_STANDARD 11 )
+set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall" )
+set( CMAKE_BUILD_TYPE Debug )
+
+add_executable(5  05.cpp)
+add_executable(6  06.cpp)
+add_executable(7  07.cpp)
+add_executable(8  08.cpp)
+add_executable(9  09.cpp)
+add_executable(10 10.cpp)
+add_executable(11 11.cpp)
+add_executable(12 12.cpp)
