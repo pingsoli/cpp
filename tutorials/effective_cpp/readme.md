@@ -15,3 +15,11 @@
 [Item 10: Have assignment operators return a reference to *this](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter02/10.cpp)  
 [Item 11: Handle assignment to self in operator=](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter02/11.cpp)  
 [Item 12: Copy all parts of an object](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter02/12.cpp)  
+
+## Chapter 03 - Resource Management
+[Item 13: Use objects to manage resources](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter03/13.cpp)  
+[Item 14: Think carefully about the copying behavior in resource-manageing classes](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter03/14.cpp)  
+[Item 15: Provide access to raw resources in resources-managing classes](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter03/15.cpp)  
+[Item 16: Use the same form in corresponding uses of new and delete](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter03/16.cpp)  
+[Item 17: Store newed objects in smart pointers in standalone statements](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter03/17.cpp)  
+

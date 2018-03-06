@@ -9,7 +9,7 @@
  *
  * =========================================================================
  *
- * Use case ?
+ * Use-case ?
  * 1) std::for_each(), STL algorithms
  * 2) sometimes, logger needs to overload operator().
  *

@@ -1,4 +1,5 @@
-#include "initializer_list_test.h"
+#include <initializer_list>
+#include <iostream>
 
 /*
  * NOTE:
@@ -19,7 +20,10 @@ void values(std::initializer_list<int> intValues)
     std::cout << "Value: " << *begin << "\n";
 }
 
-void initializer_list_test()
+int main(int argc, char** argv)
 {
-  values({1, 2, 3, 4, 5, 6});
+  values({1, 2, 3, 4, 5, 6});  // Ok
+//  values(1, 2, 3, 4, 5, 6);  // Error
+
+  return 0;
 }

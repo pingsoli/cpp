@@ -1,4 +1,6 @@
-#include "io_manip.h"
+#include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -52,4 +54,9 @@ void rw_file()
   getline(rw, s);
 
   cout << "Read: " << s << '\n';
+}
+
+int main(int argc, char** argv)
+{
+  return 0;
 }
