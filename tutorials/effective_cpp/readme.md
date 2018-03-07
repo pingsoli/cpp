@@ -23,3 +23,13 @@
 [Item 16: Use the same form in corresponding uses of new and delete](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter03/16.cpp)  
 [Item 17: Store newed objects in smart pointers in standalone statements](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter03/17.cpp)  
 
+## Chapter 04 - Designs and Declarations
+[Item 18: Make interfaces easy to use correctly and hard to use incorrectly](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/18.cpp)  
+[Item 19: Treat class design as type design](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/19.cpp)  
+[Item 20: Prefer pass-by-reference-to-const to pass-by-value](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/20.cpp)  
+[Item 21: Don't try to return a reference when you must return a object](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/21.cpp)  
+[Item 22: Declare data members private](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/22.cpp)  
+[Item 23: Prefer non-member non-friend functions to member functions](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/23.cpp)  
+[Item 24: Declare non-member functions when type conversions should apply to all parameters](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/24.cpp)  
+[Item 25: Consider support for a non-throwing swap](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/25.cpp)  
+

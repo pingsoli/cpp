@@ -1,0 +1,15 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Item 19: Treat class design as type design.
+//
+// Class design is type design. Before defining a new type, be sure to consider
+// all the issues discussed in this item.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+
+int main(int argc, char** argv)
+{
+  return 0;
+}
