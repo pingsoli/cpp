@@ -33,3 +33,10 @@
 [Item 24: Declare non-member functions when type conversions should apply to all parameters](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/24.cpp)  
 [Item 25: Consider support for a non-throwing swap](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter04/25.cpp)  
 
+## Chapter 05 - Implementations
+[Item 26: Postpone variable definitions as long as possible](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/26.cpp)  
+[Item 27: Minimize casting](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/27.cpp)  
+[Item 28: Avoid returning "handles" to object internals](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/28.cpp)  
+[Item 29: Strive for exception-safe code](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/29.cpp)  
+[Item 30: Understand the ins and outs of inlining](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/30.cpp)  
+[Item 31: Minimize compilation dependencies between files](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/31.cpp)  
