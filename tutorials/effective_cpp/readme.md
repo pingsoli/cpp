@@ -40,3 +40,14 @@
 [Item 29: Strive for exception-safe code](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/29.cpp)  
 [Item 30: Understand the ins and outs of inlining](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/30.cpp)  
 [Item 31: Minimize compilation dependencies between files](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter05/31.cpp)  
+
+## Chapter 06 - Inheritance and Object-Oriented Design
+[Item 32: Make sure public inheritance models "is-a"](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/32.cpp)  
+[Item 33: Avoid hiding inherited names](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/33.cpp)  
+[Item 34: Difference between inheritance of interface and inheritance of implementation](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/34.cpp)  
+[Item 35: Consider alternatives to virtual functions](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/35.cpp)  
+[Item 36: Never redefine an inherited non-virtual function](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/36.cpp)  
+[Item 37: Never redefine a function's inherited default parameter value](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/37.cpp)  
+[Item 38: Model "has-a" or "is-implemented-in-terms-of" through composition](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/38.cpp)  
+[Item 39: Use private inheritance judiciously](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/39.cpp)  
+[Item 40: Use multiple inheritace judiciously](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/40.cpp)  
