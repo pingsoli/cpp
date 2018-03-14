@@ -50,4 +50,25 @@
 [Item 37: Never redefine a function's inherited default parameter value](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/37.cpp)  
 [Item 38: Model "has-a" or "is-implemented-in-terms-of" through composition](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/38.cpp)  
 [Item 39: Use private inheritance judiciously](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/39.cpp)  
-[Item 40: Use multiple inheritace judiciously](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/40.cpp)  
+[Item 40: Use multiple inheritance judiciously](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter06/40.cpp)  
+
+## Chapter 07 - Templates and Generic Programming
+[Item 41: Understand implicit interfaces and compile-time polymorphism](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/41.cpp)  
+[Item 42: Understand two meanings of typename](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/42.cpp)  
+[Item 43: Know how to access names in templatized base classes](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/43.cpp)  
+[Item 44: Factor parameter-independent code out of templates](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/44.cpp)  
+[Item 45: Use member function templates to access "all compatible types"](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/45.cpp)  
+[Item 46: Define non-member functions inside templates when type conversions are desired](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/46.cpp)  
+[Item 47: Use traits classes for information about types](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/47.cpp)  
+[Item 48: Be aware of template metaprogramming](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/48.cpp)  
+
+## Chapter 08 - Customing new and delete
+[Item 49: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/49.cpp)  
+[Item 50: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/50.cpp)  
+[Item 51: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/51.cpp)  
+[Item 52: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/52.cpp)  
+
+## Chapter 09 - Miscellany
+[Item 53: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/53.cpp)  
+[Item 54: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/54.cpp)  
+[Item 55: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/55.cpp)  
