@@ -69,6 +69,6 @@
 [Item 52: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/52.cpp)  
 
 ## Chapter 09 - Miscellany
-[Item 53: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/53.cpp)  
-[Item 54: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/54.cpp)  
-[Item 55: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/55.cpp)  
+[Item 53: Pay attention to compiler warnings](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/53.cpp)  
+[Item 54: Familiarize yourself with the standard library, including TR1](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/54.cpp)  
+[Item 55: Familiarize yourself with Boost](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/55.cpp)  
