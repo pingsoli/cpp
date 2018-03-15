@@ -63,10 +63,10 @@
 [Item 48: Be aware of template metaprogramming](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter07/48.cpp)  
 
 ## Chapter 08 - Customing new and delete
-[Item 49: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/49.cpp)  
-[Item 50: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/50.cpp)  
-[Item 51: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/51.cpp)  
-[Item 52: ](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/52.cpp)  
+[Item 49: Undertand the behavior of the new-handler](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/49.cpp)  
+[Item 50: Undertand when it makes sense to replace new and delete](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/50.cpp)  
+[Item 51: Adhere to convention when you writing new and delete](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/51.cpp)  
+[Item 52: Write replacement delete if you write replacement new](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter08/52.cpp)  
 
 ## Chapter 09 - Miscellany
 [Item 53: Pay attention to compiler warnings](https://github.com/pingsoli/cpp/blob/master/tutorials/effective_cpp/chapter09/53.cpp)  
