@@ -1,5 +1,3 @@
-#include "atomic_access.h"
-
 #include <atomic>
 #include <thread>
 #include <assert.h>
@@ -7,12 +5,11 @@
 std::atomic<bool> x, y;
 std::atomic<int>  z;
 
-/*
- * There is no way to promise the exectuting sequence of
- * operation 1 and operation 2. Maybe operation 1 is after 
- * operation 2. So, y may be ture, but x is false. 
- * It happened rarely, but isn't impossible.
- */
+// There is no way to promise the exectuting sequence of
+// operation 1 and operation 2. Maybe operation 1 is after
+// operation 2. So, y may be ture, but x is false.
+// It happened rarely, but isn't impossible.
+
 void write_x_then_y()
 {
   x.store(true, std::memory_order_relaxed); // operation 1
@@ -26,11 +23,8 @@ void read_y_then_x()
     ++z;
 }
 
-/*
- * std::memory_order_relaxed is unorder, 
- * so, assert is maybe executed.
- */
-void run_atomic_test()
+// std::memory_order_relaxed is unorder, so, assert is maybe executed.
+int main(int argc, char** argv)
 {
   x = false;
   y = false;
@@ -38,9 +32,11 @@ void run_atomic_test()
 
   std::thread a(write_x_then_y);
   std::thread b(read_y_then_x);
-  
+
   a.join();
   b.join();
 
   assert(z.load() != 0);
+
+  return 0;
 }
