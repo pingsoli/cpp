@@ -10,3 +10,6 @@ target_link_libraries(atomic_access pthread)
 
 add_executable(future future.cpp)
 target_link_libraries(future pthread)
+
+add_executable(atomic atomic.cpp)
+target_link_libraries(atomic pthread)

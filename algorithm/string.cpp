@@ -1,10 +1,13 @@
-/*
- * String Algorithms
- * searching: double-for, KMP
- *
- * FAQ:
- * 1. string.find() use what kind of algorithm ? KMP
- */
+///////////////////////////////////////////////////////////////////////////////
+//
+// String Algorithms
+// searching: double-for, KMP
+//
+// FAQ:
+// 1. string.find() use what kind of algorithm ? KMP
+//
+///////////////////////////////////////////////////////////////////////////////
+
 #include <string>
 #include <iostream>
 
