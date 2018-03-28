@@ -2,8 +2,11 @@
 //
 // A thread-safe lookup table
 //
+// won't complile
+//
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <algorithm>
 #include <functional>
 #include <iostream>
 #include <list>
