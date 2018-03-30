@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// BFS (Breadth First Search)
+// BFS (Breadth First Search) with adjacency matrix
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -8,15 +8,15 @@
 #include <queue>
 
 const unsigned int N = 5;
-
-int visited[N + 1] = { 0, };
+int visited[N] = { 0, };
 
 int maze[N][N] = {
-  {0, 1, 1, 0, 0},
-  {0, 0, 1, 1, 0},
-  {0, 1, 1, 1, 0},
-  {1, 0, 0, 0, 0},
-  {0, 0, 1, 1, 0}
+//  0  1  2  3  4
+  { 0, 1, 1, 0, 0 }, // 0
+  { 0, 0, 1, 1, 0 }, // 1
+  { 0, 1, 1, 1, 0 }, // 2
+  { 1, 0, 0, 0, 0 }, // 3
+  { 0, 0, 1, 1, 0 }  // 4
 };
 
 void BFS(int maze[][N], int start)
@@ -32,9 +32,9 @@ void BFS(int maze[][N], int start)
     std::cout << front << ' ';
     queue_.pop();
 
-    for (int i = 1; i < N + 1; ++i)
+    for (int i = 0; i < N; ++i)
     {
-      if (!visited[i] && maze[front - 1][i - 1] == 1)
+      if (!visited[i] && maze[front][i] == 1)
       {
         visited[i] = 1;
         queue_.push(i);
@@ -45,12 +45,14 @@ void BFS(int maze[][N], int start)
 
 int main(int argc, char** argv)
 {
-  for (int i = 1; i < N + 1; ++i)
+  // traverse all vertices
+  for (int i = 0; i < N; ++i)
   {
     if (visited[i] == 1)
       continue;
     BFS(maze, i);
   }
+
   std::cout << std::endl;
 
   return 0;
