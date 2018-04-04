@@ -10,7 +10,11 @@ covers c++14 and c++17 and is published in April 2018.
 [Chapter 03: Sharing data between threads](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter03)  
 [Chapter 04: Synchronizing concurrent operations](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter04)  
 [Chapter 05: The C++ memory model and operations on atomic types](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter05)  
-[Chapter 06: Designed lock-based concurrent data structures](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter06)  
+[Chapter 06: Designing lock-based concurrent data structures](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter06)  
+[Chapter 07: Designing lock-free concurrent data structure](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter07)  
+[Chapter 08: Designing concurrent code](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter08)  
+[Chapter 09: Advanced thread management](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter09)  
+[Chapter 10: Testing and debugging multithreaded applications](https://github.com/pingsoli/cpp/tree/master/tutorials/cpp_concurrency_in_action/chapter10)  
 
 # References
 [1] http://www.bogotobogo.com/cplusplus/files/CplusplusConcurrencyInAction_PracticalMultithreading.pdf  

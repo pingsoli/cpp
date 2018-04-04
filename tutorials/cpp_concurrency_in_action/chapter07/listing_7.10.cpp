@@ -4,6 +4,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <atomic>
+#include <memory>
+
 template <typename T>
 class lock_free_stack
 {
@@ -51,4 +54,17 @@ public:
     new_node.ptr->next = head.load();
     while (!head.compare_exchange_weak(new_node.ptr->next, new_node));
   }
+
+  // no implementation
+  bool pop()
+  {
+    return false;
+  }
 };
+
+int main(int argc, char** argv)
+{
+  lock_free_stack<int> stack;
+
+  return 0;
+}

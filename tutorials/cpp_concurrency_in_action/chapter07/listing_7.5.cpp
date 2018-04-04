@@ -22,16 +22,16 @@ private:
 
   void try_reclaim(node* old_node)
   {
-    if (threads_in_pop == 1) // trying to reclaim the node
+    if (threads_in_pop == 1) // trying to reclaim the node in current thread
     {
-      node* nodes_to_delete = to_be_deleted.exchange(nullptr);
-      if (!--threads_in_pop) // Are you the only thread in pop ?
+      node* nodes_to_delete = to_be_deleted.exchange(nullptr); // claim delete list
+      if (!--threads_in_pop) // Are you the only thread in pop operation ?
       {
         delete_nodes(nodes_to_delete);
       }
       else
       {
-        chain_pending_nodes(nodes_to_delete);
+        chain_pending_nodes(nodes_to_delete); // chain the node back onto the list of nodes pending deletion.
       }
       delete old_head;
     }

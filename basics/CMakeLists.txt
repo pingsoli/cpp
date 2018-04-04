@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_CXX_FLAGS "-fno-elide-constructors")
+#set(CMAKE_CXX_FLAGS "-fno-elide-constructors")
 
 add_executable(ordered_and_unordered_map ordered_and_unordered_map.cpp)
 add_executable(operator_new              operator_new.cpp)
@@ -20,3 +20,10 @@ add_executable(deprecated                deprecated_keyword.cpp)
 add_executable(big_and_little_endian     big_and_little_endian.cpp)
 add_executable(const_trick               const_trick.cpp)
 add_executable(measure_elapsed_time      measure_elapsed_time.cpp)
+add_executable(return_value_optimization return_value_optimization.cpp)
+
+add_executable(future                    future.cpp)
+target_link_libraries(future             pthread)
+
+add_executable(functor                   functor.cpp)
+add_executable(smart_ptr                 smart_ptr.cpp)
