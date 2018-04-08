@@ -1,17 +1,36 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// A parallel version of std::accumulate using std::packaged_task
-// It's not thread-safe
+// An exception-safe parallel version of std::accumulate
 //
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <algorithm>
+#include <chrono>
 #include <functional>
 #include <future>
 #include <iostream>
 #include <numeric>
 #include <thread>
 #include <vector>
+
+class join_threads
+{
+  std::vector<std::thread>& threads;
+
+public:
+  explicit join_threads(std::vector<std::thread>& threads_) :
+    threads{threads_}
+  {}
+
+  ~join_threads()
+  {
+    for (unsigned long i = 0; i < threads.size(); ++i)
+    {
+      if (threads[i].joinable())
+        threads[i].join();
+    }
+  }
+};
 
 template <typename Iterator, typename T>
 struct accumulate_block
@@ -21,12 +40,6 @@ struct accumulate_block
     return std::accumulate(first, last, T());
   }
 };
-
-// template <typename Iterator, typename T>
-// T accumulate_block(Iterator first, Iterator last)
-// {
-//   return std::accumulate(first, last, T());
-// }
 
 template <typename Iterator, typename T>
 T parallel_accumulate(Iterator first, Iterator last, T init)
@@ -48,13 +61,14 @@ T parallel_accumulate(Iterator first, Iterator last, T init)
 
   unsigned long const block_size = length / num_threads;
 
-  std::cout << "max_threads: " << max_threads << std::endl;
-  std::cout << "hardware_concurrency: " << hardware_threads << std::endl;
-  std::cout << "num_threads: " << num_threads << std::endl;
-  std::cout << "block_size: " << block_size << std::endl;
+//  std::cout << "max_threads: " << max_threads << std::endl;
+//  std::cout << "hardware_concurrency: " << hardware_threads << std::endl;
+//  std::cout << "num_threads: " << num_threads << std::endl;
+//  std::cout << "block_size: " << block_size << std::endl;
 
   std::vector<std::future<T>> futures(num_threads - 1);
   std::vector<std::thread> threads(num_threads - 1);
+  join_threads joiner(threads);    /// magic is here
 
   Iterator block_start = first;
   for (unsigned long i = 0; i < (num_threads - 1); ++i)
@@ -69,9 +83,6 @@ T parallel_accumulate(Iterator first, Iterator last, T init)
   }
 
   T last_result = accumulate_block<Iterator, T>()(block_start, last);
-
-  std::for_each(threads.begin(), threads.end(),
-      std::mem_fn(&std::thread::join));
 
   T result = init;
   for (unsigned long i = 0; i < (num_threads - 1); ++i)
@@ -95,7 +106,6 @@ int main(int argc, char** argv)
   int sum = parallel_accumulate(vi.begin(), vi.end(), 0);
   std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
-  std::cout << "sum = " << sum << std::endl;
   std::cout << "time elapsed: "
     << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count()
     << std::endl;
