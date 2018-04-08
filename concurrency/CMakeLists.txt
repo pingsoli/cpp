@@ -13,3 +13,6 @@ target_link_libraries(future pthread)
 
 add_executable(atomic atomic.cpp)
 target_link_libraries(atomic pthread)
+
+add_executable(is_lock_free is_lock_free.cpp)
+target_link_libraries(is_lock_free -latomic)

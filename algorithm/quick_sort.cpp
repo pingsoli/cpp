@@ -1,6 +1,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
 // quick sort with recursion
+// quick sort algorithm is unstable, influenced by given sequence.
+//
+// Following code give two implementations
+// First, use the STL algorithm
+// Second, implement by ourself
 //
 // NOTE:
 // 1) Take care the differece between c++11 and c++14 because of
@@ -75,27 +80,110 @@ void generateRand(T start, T end, V startValue)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+//
+// forward declaration
+int partition(std::vector<int>&, int, int);
+
+void quick_sort(std::vector<int>& array, int first, int last)
+{
+  int pivot;
+
+  if (first < last)
+  {
+    pivot = partition(array, first, last);
+    quick_sort(array, first, pivot);
+    quick_sort(array, pivot+1, last);
+  }
+}
+
+int partition(std::vector<int>& array, int first, int last)
+{
+  int p = first;
+  int pivot_data = array[first];
+
+  for (int i = first+1; i <= last; ++i)
+  {
+    if (array[i] <= pivot_data)
+    {
+      ++p;
+      std::swap(array[i], array[p]);
+//      std::iter_swap(array.begin() + i, array.begin() + p);
+    }
+  }
+  std::swap(array[p], array[first]);
+//  std::iter_swap(array.begin() + p, array.begin() + first);
+  return p;
+}
+
+///////////////////////////////////////////////////////////////////////////////
 
 int main(int argc, char** argv)
 {
   /////////////////////////////////////////////////////////////////////////////
+  //
+  // Test int array
+  {
+    int intArray[5];
+    generateRand(intArray, intArray + 5, 10);
+    quickSort(intArray, intArray + 5);
+    printAll(intArray, intArray + 5, "int array");
+  }
 
-  int intArray[5];
-  generateRand(intArray, intArray + 5, 10);
-  printAll(intArray, intArray + 5, "before ");
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Test STL container
+  {
+    std::vector<int> arr = {8, 5, 2, 9, 10, 23};
+    quickSort(arr.begin(), arr.end());
+    printAll(arr.begin(), arr.end(), "STL container");
+  }
 
-  quickSort(intArray, intArray + 5);
-  printAll(intArray, intArray + 5, "after ");
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Only one element
+  {
+    std::vector<int> arr1{1};
+    quick_sort(arr1, 0, arr1.size()-1);
+    printAll(arr1.begin(), arr1.end(), "only one element");
+  }
 
-  ////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Two elements
+  {
+    std::vector<int> arr1{1, 2};
+    quick_sort(arr1, 0, arr1.size()-1);
+    printAll(arr1.begin(), arr1.end(), "only two elements");
+  }
 
-  std::vector<int> arr = {8, 5, 2, 9, 10, 23};
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Random sequence
+  {
+    std::vector<int> arr1{2, 8, 1, 3, 9, 4, 6 , 5};
+    quick_sort(arr1, 0, arr1.size()-1);
+    printAll(arr1.begin(), arr1.end(), "random sequence");
+  }
 
-  printAll(arr.begin(), arr.end(), "before");
-  quickSort(arr.begin(), arr.end());
-  printAll(arr.begin(), arr.end(), "after");
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Reverse sequence
+  {
+    std::vector<int> arr1{9, 8, 7, 6, 5, 4, 3, 2, 1};
+    quick_sort(arr1, 0, arr1.size()-1);
+    printAll(arr1.begin(), arr1.end(), "reverse sequence");
+  }
 
-  ////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  // Only one placed in wrong place
+  {
+    std::vector<int> arr1{1, 2, 3, 4, 5, 7, 6, 8, 9};
+    quick_sort(arr1, 0, arr1.size()-1);
+    printAll(arr1.begin(), arr1.end(), "only one wrong place");
+  }
+
+  /////////////////////////////////////////////////////////////////////////////
 
   return 0;
 }
