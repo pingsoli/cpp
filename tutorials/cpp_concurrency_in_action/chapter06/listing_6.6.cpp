@@ -26,10 +26,10 @@ private:
     std::unique_ptr<node> next;
   };
 
-  std::mutex head_mutex;
+  std::mutex            head_mutex;
   std::unique_ptr<node> head;
-  std::mutex tail_mutex;
-  node* tail;
+  std::mutex            tail_mutex;
+  node*                 tail;
 
   node* get_tail()
   {
@@ -95,6 +95,8 @@ public:
   }
 };
 
+///////////////////////////////////////////////////////////////////////////////
+
 threadsafe_queue<int> q;
 
 // protect cout
@@ -123,6 +125,8 @@ void consume()
     }
   }
 }
+
+///////////////////////////////////////////////////////////////////////////////
 
 int main(int argc, char** argv)
 {

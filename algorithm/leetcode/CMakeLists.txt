@@ -7,3 +7,5 @@ set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(letter_combinations_of_a_phone_number letter_combinations_of_a_phone_number.cpp)
 add_executable(two_sum two_sum.cpp)
+add_executable(valid_parentheses valid_parentheses.cpp)
+add_executable(merge_two_sorted_lists merge_two_sorted_lists.cpp)

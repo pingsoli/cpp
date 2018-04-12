@@ -27,3 +27,6 @@ target_link_libraries(future             pthread)
 add_executable(functor              functor.cpp)
 add_executable(smart_ptr            smart_ptr.cpp)
 add_executable(compute_elapsed_time compute_elapsed_time.cpp)
+
+add_executable(thread_local thread_local.cpp)
+target_link_libraries(thread_local pthread)
