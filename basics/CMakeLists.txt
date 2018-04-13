@@ -30,3 +30,5 @@ add_executable(compute_elapsed_time compute_elapsed_time.cpp)
 
 add_executable(thread_local thread_local.cpp)
 target_link_libraries(thread_local pthread)
+
+add_executable(extern_main extern_main.cpp extern_keyword.cpp)
