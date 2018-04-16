@@ -5,7 +5,11 @@
 //
 // Following code give two implementations
 // First, use the STL algorithm
-// Second, implement by ourself
+// Second, implement by myself
+//
+// Time Complexity:
+// average: O (n log n)
+// worst:   O (n ^ 2)
 //
 // NOTE:
 // 1) Take care the differece between c++11 and c++14 because of
@@ -112,6 +116,7 @@ int partition(std::vector<int>& array, int first, int last)
   }
   std::swap(array[p], array[first]);
 //  std::iter_swap(array.begin() + p, array.begin() + first);
+
   return p;
 }
 
@@ -160,7 +165,7 @@ int main(int argc, char** argv)
   //
   // Random sequence
   {
-    std::vector<int> arr1{2, 8, 1, 3, 9, 4, 6 , 5};
+    std::vector<int> arr1{5, 7, 3, 4, 1, 9, 2 , 8, 10, 6};
     quick_sort(arr1, 0, arr1.size()-1);
     printAll(arr1.begin(), arr1.end(), "random sequence");
   }
