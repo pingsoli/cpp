@@ -12,3 +12,4 @@ add_executable(remove_duplicates_from_sorted_list    remove_duplicates_from_sort
 add_executable(remove_duplicates_from_sorted_list_ii remove_duplicates_from_sorted_list_II.cpp)
 add_executable(remove_duplicates_from_unsorted_list  remove_duplicates_from_unsorted_list.cpp)
 add_executable(partition_list                        partition_list.cpp)
+add_executable(add_two_numbers                       add_two_numbers.cpp)
