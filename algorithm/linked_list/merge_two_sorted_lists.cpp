@@ -60,32 +60,27 @@ ListNode* merge_two_sorted_lists_1(ListNode* l1, ListNode* l2)
 //
 // helper function
 
+// insert into list by order
 void insert(ListNode** head, int value)
 {
   ListNode* new_node = new ListNode(value);
-  ListNode* curr_node = *head, *prev_node = *head;
+  ListNode* curr_node{*head}, *prev_node{*head};
 
   // empty list
-  if (*head == nullptr)
-  {
+  if (*head == nullptr) {
     *head = new_node;
     return;
   }
 
   // insert before the head node
-  if (new_node->val < (*head)->val)
-  {
+  if (new_node->val < (*head)->val) {
     new_node->next = *head;
     *head = new_node;
     return;
   }
 
-  curr_node = (*head)->next;
-
   while (curr_node) {
-
-    if (new_node->val < curr_node->val)
-    {
+    if (new_node->val < curr_node->val) {
       new_node->next = curr_node;
       prev_node->next = new_node;
       return;
@@ -232,7 +227,6 @@ int main(int argc, char** argv)
 
     traverse(new_list);
   }
-
 
   return 0;
 }
