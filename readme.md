@@ -1,7 +1,18 @@
-# C Plus Plus Training
-This repos is used for cpp testing and learning.  
+# C Plus Plus Learning
+This repo is for cpp learing.  
 
-# Reference
-Boost Library  
+# Directories
+## algorithm
+most questions are from LeetCode  
+https://leetcode.com/problemset/all/  
+
+## boost
+boost library learning  
+
+** references **  
 https://github.com/boostorg  
 https://theboostcpplibraries.com/  
+
+## tutorials
+Cpp Concurrency in Action - 1th Edition  
+Effective Cpp  
