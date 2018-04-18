@@ -32,3 +32,4 @@ add_executable(thread_local thread_local.cpp)
 target_link_libraries(thread_local pthread)
 
 add_executable(extern_main extern_main.cpp extern_keyword.cpp)
+add_executable(pass_a_polymorphic_object_to_stl_algorithm pass_a_polymorphic_object_to_stl_algorithm.cpp)
