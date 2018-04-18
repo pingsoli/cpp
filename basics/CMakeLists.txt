@@ -21,15 +21,17 @@ add_executable(big_and_little_endian     big_and_little_endian.cpp)
 add_executable(const_trick               const_trick.cpp)
 add_executable(return_value_optimization return_value_optimization.cpp)
 
-add_executable(future                    future.cpp)
-target_link_libraries(future             pthread)
+add_executable(future        future.cpp)
+target_link_libraries(future pthread)
 
 add_executable(functor              functor.cpp)
 add_executable(smart_ptr            smart_ptr.cpp)
 add_executable(compute_elapsed_time compute_elapsed_time.cpp)
 
-add_executable(thread_local thread_local.cpp)
+add_executable(thread_local        thread_local.cpp)
 target_link_libraries(thread_local pthread)
 
 add_executable(extern_main extern_main.cpp extern_keyword.cpp)
 add_executable(pass_a_polymorphic_object_to_stl_algorithm pass_a_polymorphic_object_to_stl_algorithm.cpp)
+
+add_executable(variadic_function variadic_function.cpp)
