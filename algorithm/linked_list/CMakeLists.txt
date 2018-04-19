@@ -19,3 +19,5 @@ add_executable(remove_nth_node_from_end              remove_nth_node_from_end.cp
 add_executable(linked_list_cycle                     linked_list_cycle.cpp)
 add_executable(linked_list_cycle_ii                  linked_list_cycle_ii.cpp)
 add_executable(reorder_list                          reorder_list.cpp)
+add_executable(copy_list_with_random_pointer         copy_list_with_random_pointer.cpp)
+add_executable(merge_sort                            merge_sort.cpp)
