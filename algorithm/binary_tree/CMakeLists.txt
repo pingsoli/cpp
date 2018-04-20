@@ -7,3 +7,5 @@ set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(binary_search_tree binary_search_tree.cpp)
 add_executable(vertical_sum       vertical_sum.cpp)
+add_executable(maximum_width      maximum_width.cpp)
+add_executable(maximum_depth      maximum_depth.cpp)
