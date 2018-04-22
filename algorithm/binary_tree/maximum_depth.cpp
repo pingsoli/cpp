@@ -26,8 +26,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include <iostream>
 #include <algorithm>
+#include <iostream>
+#include <queue>
 #include <stack>
 
 struct BinaryTreeNode {
@@ -82,6 +83,29 @@ int max_depth_1(BinaryTreeNode *node)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+// queue iterative solution
+int max_depth_2(BinaryTreeNode *node)
+{
+  if (!node) return 0;
+
+  std::queue<BinaryTreeNode*> q;
+  q.push(node);
+
+  int max_depth = 0;
+
+  while (!q.empty()) {
+    int size = q.size();
+    for (int i = 0; i < size; ++i) {
+      BinaryTreeNode *n = q.front();
+      q.pop();
+
+      if (n->left)  q.push(n->left);
+      if (n->right) q.push(n->right);
+    }
+   ++max_depth;
+  }
+  return max_depth;
+}
 
 int main(int argc, char** argv)
 {
@@ -97,17 +121,18 @@ int main(int argc, char** argv)
   BinaryTreeNode *n3   = new BinaryTreeNode(15);
   BinaryTreeNode *n4   = new BinaryTreeNode(7);
 
-  BinaryTreeNode *n5 = new BinaryTreeNode(30); // add new node
+//  BinaryTreeNode *n5 = new BinaryTreeNode(30); // add new node
 
   root->left  = n1;
   root->right = n2;
   n2->left    = n3;
   n2->right   = n4;
 
-  n3->left = n5;  // add n5 to n3 as left child
+//  n3->left = n5;  // add n5 to n3 as left child
 
   std::cout << "max depth: " << max_depth(root) << std::endl;
   std::cout << "max depth: " << max_depth_1(root) << std::endl;
+  std::cout << "max depth: " << max_depth_2(root) << std::endl;
 
   return 0;
 }
