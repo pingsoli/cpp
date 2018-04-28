@@ -39,11 +39,6 @@ ListNode *remove_elements(ListNode *head, int val) {
   ListNode *temp{nullptr};
 
   while (*list) {
-
-    std::cout << "head: " << head << "  &head:" << &head << std::endl;
-    std::cout << (*list)->val << "   *list: " << *list
-      << "  list: " << list;
-
     if ((*list)->val == val)
     {
       temp = *list;
@@ -54,12 +49,7 @@ ListNode *remove_elements(ListNode *head, int val) {
     {
       list = &(*list)->next;
     }
-
-    std::cout << "  ->  " << "   *list: " << *list
-              << "  list: " << list << std::endl;
-    std::cout << "head: " << head << "  &head:" << &head << std::endl;
   }
-  std::cout << head << std::endl;
   return head;
 }
 

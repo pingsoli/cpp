@@ -25,3 +25,4 @@ add_executable(sort_list_with_recursion_merge_sort   sort_list_with_recursion_me
 add_executable(swap_nodes_in_pairs                   swap_nodes_in_pairs.cpp)
 add_executable(remove_linked_list_elements           remove_linked_list_elements.cpp)
 add_executable(LRU_cache                             LRU_cache.cpp)
+add_executable(rotate_list                           rotate_list.cpp)

@@ -1,0 +1,11 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+// bucket sorting is a kind of hash table
+//
+// In bucket sort algorithm the array elements are distributed into a number
+// of bucktes. Then each bucket sorted individually either using any other
+// sorting algorithm or by recursively applying bucket sort.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
