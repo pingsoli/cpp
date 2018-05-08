@@ -7,3 +7,4 @@ set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(beautiful_std_alg beautiful_std_alg.cpp)
 add_executable(reverse_integer   reverse_integer.cpp)
+add_executable(three_sum         3sum.cpp)
