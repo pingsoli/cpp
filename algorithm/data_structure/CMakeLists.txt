@@ -5,7 +5,8 @@ set(CMAKE_CXX_STANDARD_RQUIRED ON)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-add_executable(valid_parentheses valid_parentheses.cpp)
-add_executable(two_sum           two_sum.cpp)
-add_executable(heap              heap.cpp)
-add_executable(min_stack         min_stack.cpp)
+add_executable(valid_parentheses      valid_parentheses.cpp)
+add_executable(two_sum                two_sum.cpp)
+add_executable(heap                   heap.cpp)
+add_executable(min_stack              min_stack.cpp)
+add_executable(sliding_window_maximum sliding_window_maximum.cpp)
