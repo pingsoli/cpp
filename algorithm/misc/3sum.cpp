@@ -61,7 +61,7 @@ std::vector<std::vector<int>> three_sum(std::vector<int>& nums) {
 
         // Processing duplicate of Number 3
         // Rolling the back pointer to the next different number backwards
-        while (front < back && nums[back] == triplet[2]) back++;
+        while (front < back && nums[back] == triplet[2]) back--;
       }
     }
 
