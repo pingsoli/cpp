@@ -46,3 +46,5 @@ add_executable(number_system_conversion                   number_system_conversi
 add_executable(two_star_pointer                           two_star_pointer.cpp)
 add_executable(virtuality                                 virtuality.cpp)
 add_executable(empty_base_optimization                    empty_base_optimization.cpp)
+add_executable(decltype                                   decltype.cpp)
+add_executable(stringstream                               stringstream.cpp)

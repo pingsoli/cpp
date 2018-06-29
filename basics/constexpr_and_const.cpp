@@ -51,8 +51,8 @@ public:
 
 int main(int argc, char** argv)
 {
-//  std::cout << "9^2 = " << sqr1(9) << std::endl;
-//  std::cout << fibonacci(10) << std::endl;
+ //std::cout << "9^2 = " << sqr1(9) << std::endl;
+ //std::cout << fibonacci(10) << std::endl;
 
   //////////////////////////////////////////////////////////////////////////////
   // run-time and compile-time variable ?
@@ -60,17 +60,17 @@ int main(int argc, char** argv)
   // value or a runtime value. but constexpr only mean the variable is compile
   // time.
 
-//  int run_time;
-//  std::cin >> run_time;
-//
-//  static const int compile_time = run_time;
-//  std::cout << compile_time;
+ //int run_time;
+ //std::cin >> run_time;
+
+ //static const int compile_time = run_time;
+ //std::cout << compile_time;
   //////////////////////////////////////////////////////////////////////////////
 
-  std::cout << Test::a << std::endl; // ok, compile time value can have value.
+  //std::cout << Test::a << std::endl; // ok, compile time value can have value.
 
   // error, compile time constants don't have address.
-  std::cout << Test::a << "(" << &Test::a << ")" << std::endl;
+  //std::cout << Test::a << "(" << &Test::a << ")" << std::endl;
 
   return 0;
 }
