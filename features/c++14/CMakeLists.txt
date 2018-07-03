@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.0)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_BUILD_TYPE Debug)
+
+add_executable(binary_literals binary_literals.cpp)
+add_executable(generic_lambda_expressions generic_lambda_expressions.cpp)
+add_executable(lambda_capture_initializers lambda_capture_initializers.cpp)
+add_executable(return_type_deduction return_type_deduction.cpp)
+add_executable(decltype_auto decltype_auto.cpp)
+add_executable(user_defined_literals user_defined_literals.cpp)
+add_executable(make_unique make_unique.cpp)
