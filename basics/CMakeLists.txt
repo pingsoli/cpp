@@ -49,3 +49,5 @@ add_executable(empty_base_optimization                    empty_base_optimizatio
 add_executable(decltype                                   decltype.cpp)
 add_executable(stringstream                               stringstream.cpp)
 add_executable(enable_shared_from_this                    enable_shared_from_this.cpp)
+
+add_executable(using_and_typedef using_and_typedef.cpp)
