@@ -26,6 +26,13 @@ int main(int argc, char *argv[])
     std::map<int, char>::iterator it = mi.begin();
     int matched_value = 2;
 
+    // value_type<const K, V>, it's more effective than complex object.
+    mi.insert(std::map<int, char>::value_type(5, 'e'));
+
+    // compare the following with the below, which is better ?
+    // the former is absolutely better in complex object.
+    mi[6] = 'f';
+
     while (it != mi.end()) {
       if (it->first == matched_value)
         mi.erase(it);

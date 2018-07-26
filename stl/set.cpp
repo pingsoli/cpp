@@ -48,6 +48,18 @@ int main(int argc, char *argv[])
   }
 
   {
+    // std::set<std::string> s;
+    //
+    // s.insert("hello");
+    // s.insert("world");
+    // s.insert("goodbye");
+    //
+    // std::copy(s.begin(), s.end(),
+    //     std::ostream_iterator<std::string>(std::cout, "\n"));
+    // std::cout << '\n';
+  }
+
+  {
     // define our compare function in associative container
     //
     // the below try is illegal.

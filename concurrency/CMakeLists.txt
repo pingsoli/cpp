@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5.0)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_BUILD_TYPE Debug)
@@ -30,5 +30,8 @@ target_link_libraries(promise_and_future -pthread)
 add_executable(shared_future shared_future.cpp)
 target_link_libraries(shared_future -pthread)
 
-add_executable(thread_pool thread_pool.cpp)
-target_link_libraries(thread_pool -pthread)
+add_executable(ThreadPool ThreadPool.cpp)
+target_link_libraries(ThreadPool -pthread)
+
+add_executable(create_future create_future.cpp)
+target_link_libraries(create_future -pthread)
