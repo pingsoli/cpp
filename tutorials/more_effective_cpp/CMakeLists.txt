@@ -1,0 +1,6 @@
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED on)
+
+add_executable(overload_instead_implicit_conversion overload_instead_implicit_conversion.cpp)
+add_executable(return_value_optimization return_value_optimization.cpp)

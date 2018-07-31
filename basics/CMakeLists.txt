@@ -51,3 +51,7 @@ add_executable(stringstream                               stringstream.cpp)
 add_executable(enable_shared_from_this                    enable_shared_from_this.cpp)
 
 add_executable(using_and_typedef using_and_typedef.cpp)
+add_executable(reference reference.cpp)
+add_executable(noncopyable noncopyable.cpp)
+add_executable(inheritance inheritance.cpp)
+add_executable(sigleton sigleton.cpp)

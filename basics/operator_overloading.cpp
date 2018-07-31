@@ -1,22 +1,18 @@
-/*
- * overload operator() function, make a class looks like a function
- *
- * =========================================================================
- *
- * Why overload operator() ?
- * create a functor.
- * details: https://stackoverflow.com/questions/317450/why-override-operator
- *
- * =========================================================================
- *
- * Use-case ?
- * 1) std::for_each(), STL algorithms
- * 2) sometimes, logger needs to overload operator().
- *
- * logger.log("hello world");  =>  logger("hello world");
- *
- * =========================================================================
- */
+////////////////////////////////////////////////////////////////////////////////
+// overload operator() function, make a class looks like a function
+//
+// Why overload operator() ?
+// create a functor.
+// details: https://stackoverflow.com/questions/317450/why-override-operator
+//
+// Use-case ?
+// 1) std::for_each(), STL algorithms
+// 2) sometimes, logger needs to overload operator().
+//
+// logger.log("hello world");  =>  logger("hello world");
+//
+////////////////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
