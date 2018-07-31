@@ -55,3 +55,8 @@ add_executable(reference reference.cpp)
 add_executable(noncopyable noncopyable.cpp)
 add_executable(inheritance inheritance.cpp)
 add_executable(sigleton sigleton.cpp)
+add_executable(shallow_and_deep_copy shallow_and_deep_copy.cpp)
+
+
+add_executable(timer timer.cpp)
+target_link_libraries(timer -pthread)
