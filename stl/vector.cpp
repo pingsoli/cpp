@@ -171,18 +171,26 @@ int main(int argc, char *argv[])
   }
 
   {
-    // copy int array to a vector
-    int arr[] = {1, 2, 3, 4, 5, 6, 7};
-    std::size_t size = sizeof(arr) / sizeof(int);
-    std::vector<int> vi;
+    // // copy int array to a vector
+    // int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    // std::size_t size = sizeof(arr) / sizeof(int);
+    // std::vector<int> vi;
+    //
+    // std::cout << size << '\n';
+    // // the following call is equivalent, but back_inserter call the push_back,
+    // // but inserter will call the insert() method of vector.
+    // // std::copy(arr, arr+size, std::back_inserter(vi));
+    // std::copy(arr, arr+size, std::inserter(vi, vi.begin()));
+    //
+    // std::copy(vi.begin(), vi.end(), std::ostream_iterator<int>(std::cout, " "));
+  }
 
-    std::cout << size << '\n';
-    // the following call is equivalent, but back_inserter call the push_back,
-    // but inserter will call the insert() method of vector.
-    // std::copy(arr, arr+size, std::back_inserter(vi));
-    std::copy(arr, arr+size, std::inserter(vi, vi.begin()));
+  {
+    // uniform initalization of vector
+    std::vector<int> vi{100, 10};
 
-    std::copy(vi.begin(), vi.end(), std::ostream_iterator<int>(std::cout, " "));
+    for (auto& v: vi)
+      std::cout << v << '\n';
   }
 
   return 0;

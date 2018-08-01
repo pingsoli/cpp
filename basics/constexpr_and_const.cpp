@@ -15,6 +15,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <array>
 
 constexpr int sqr1(int arg)
 { return arg * arg; }
@@ -49,10 +50,20 @@ public:
   static constexpr int a = 3;
 };
 
+////////////////////////////////////////////////////////////////////////////////
+
+// return size of an array as a compile-time constant. (The arrary paramter
+// has no name, because we care only about the number of elements it contains.)
+template <typename T, std::size_t N>
+constexpr std::size_t arraySize(T (&)[N]) noexcept
+{
+  return N;
+}
+
 int main(int argc, char** argv)
 {
- //std::cout << "9^2 = " << sqr1(9) << std::endl;
- //std::cout << fibonacci(10) << std::endl;
+  //std::cout << "9^2 = " << sqr1(9) << std::endl;
+  //std::cout << fibonacci(10) << std::endl;
 
   //////////////////////////////////////////////////////////////////////////////
   // run-time and compile-time variable ?
@@ -60,17 +71,23 @@ int main(int argc, char** argv)
   // value or a runtime value. but constexpr only mean the variable is compile
   // time.
 
- //int run_time;
- //std::cin >> run_time;
+  //int run_time;
+  //std::cin >> run_time;
 
- //static const int compile_time = run_time;
- //std::cout << compile_time;
+  //static const int compile_time = run_time;
+  //std::cout << compile_time;
   //////////////////////////////////////////////////////////////////////////////
 
   //std::cout << Test::a << std::endl; // ok, compile time value can have value.
 
   // error, compile time constants don't have address.
   //std::cout << Test::a << "(" << &Test::a << ")" << std::endl;
+
+  //////////////////////////////////////////////////////////////////////////////
+  // constexpr is determined at compiling time.
+  int keyVals[] = { 1, 2, 3, 4, 5, 6, 7 }; // keyVals has 7 elements.
+  int mappedVals[arraySize(keyVals)];  // so does mappedVals.
+  std::array<int, arraySize(keyVals)> newMappedVals; // so does newMappedVals.
 
   return 0;
 }

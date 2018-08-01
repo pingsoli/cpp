@@ -57,6 +57,8 @@ add_executable(inheritance inheritance.cpp)
 add_executable(sigleton sigleton.cpp)
 add_executable(shallow_and_deep_copy shallow_and_deep_copy.cpp)
 
-
 add_executable(timer timer.cpp)
 target_link_libraries(timer -pthread)
+
+add_executable(know_variable_type know_variable_type.cpp)
+add_executable(auto auto.cpp)
