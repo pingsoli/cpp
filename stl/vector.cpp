@@ -186,11 +186,27 @@ int main(int argc, char *argv[])
   }
 
   {
-    // uniform initalization of vector
+    // uniform initalization of vector.
     std::vector<int> vi{100, 10};
+    std::vector<int> vi1(10, 20); // it's not uniform initialization.
 
     for (auto& v: vi)
       std::cout << v << '\n';
+  }
+
+  {
+    // insert a new value from a const_iterator.
+    std::vector<int> vi = {1, 2, 3, 4, 5, 6};
+    using VIConstIter = std::vector<int>::const_iterator;
+
+    VIConstIter it = std::find(vi.cbegin(), vi.cend(), 3);
+    vi.insert(it, 10); // why does this work ? it is const_iterator.
+    // Because a const_iterator prevents you from modifying the element that
+    // iterator points to, it does not prevent you from modifying the container
+    // itself.
+
+    std::copy(vi.cbegin(), vi.cend(), std::ostream_iterator<int>(std::cout, " "));
+    std::cout << '\n';
   }
 
   return 0;

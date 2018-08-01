@@ -103,12 +103,44 @@ significant difference is creating a std::vector`<numeric type>` with two argume
 4) Choosing between parantheses and braces for object creation inside templates
 can be challenging.
 
-#### Item 8:
-#### Item 9:
-#### Item 10:
-#### Item 11:
-#### Item 12:
-#### Item 13:
+#### Item 8: Prefer nullptr to 0 and NULL.
+1) Prefer nullptr to 0 and NULL.
+2) Avoid overloading on integral and pointer types.
+
+#### Item 9: Prefer alias declarations to typedefs.
+1) typedefs don't support templatization, but alias declaration do.
+2) Alias templates avoid the "::type" suffix and, in templates, the "typename"
+prefix often required to refer to typedefs.
+3) C++14 offers alias template for all the C++11 type traits transformation.
+
+#### Item 10: Prefer scoped enums to unscoped enums.
+1) C++98-style enums are now known as unscoped enums.
+2) Enumerators of scoped enums are visible only within the enum. They convert
+to other types only with cast.
+3) Both scoped and unscoped enums support specification of the underlying type.
+the default underlying type for scoped enums is int. Unscoped enums have no
+default Underlying type.
+4) Scoped enums may always be forward-declared. Unscoped enums may be
+forward-declared only if their declaration specifies an underlying type.
+
+#### Item 11: Prefered deleted functions to private undefined ones.
+1) Prefer deleted functions to private undefined ones.
+2) Any function may be deleted, including non-member functions and template
+instantiations.
+
+#### Item 12: Declare overriding functions override.
+1) Declare overriding functions override.
+2) Member function reference qualifiers make it possible to treat lvalue and
+rvalue object(`*`this) differently.
+
+#### Item 13: Prefer const_iterator to iterator.
+1) Prefer const_iterator to iterator.
+2) In maximally generic code, prefer non-member versions of begin, end, rbegin,
+etc., over the member function counterparts.
+
+In C-style code, you can use begin(), end() methods to get the first or end element
+from a array, it's more generic.
+
 #### Item 14:
 #### Item 15:
 #### Item 16:

@@ -1,13 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
-//
 // Override Vs. Overload
-//
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 
 ///////////////////////////////////////////////////////////////////////////////
-//
 // Overide
 
 void do_something()
@@ -16,7 +13,6 @@ void do_something()
 }
 
 // it's ambiguous with void do_something()
-//
 // int do_something()
 // {
 //   std::cout << "int do_something()" << std::endl;
@@ -31,10 +27,9 @@ void do_something(int)
 int do_something(int, float)
 {
   std::cout << "int do_something(int, float)" << std::endl;
+  return 0;
 }
-
 ///////////////////////////////////////////////////////////////////////////////
-//
 // Override
 
 struct Base
@@ -54,7 +49,7 @@ struct Base
   }
 
   // pure virtual function, must be implemented by derived class
-//  virtual void bar() = 0;
+  // virtual void bar() = 0;
 };
 
 struct Derived : public Base
@@ -80,33 +75,30 @@ struct Derived : public Base
 
 int main(int argc, char** argv)
 {
-
   /////////////////////////////////////////////////////////////////////////////
-  //
   // overload
 
-//  int i = do_something();
-//  do_something();
-//  do_something(1);
-//  do_something(1, 2.3f);
+  // int i = do_something();
+  // do_something();
+  // do_something(1);
+  // do_something(1, 2.3f);
 
   /////////////////////////////////////////////////////////////////////////////
-  //
   // override
 
   Base* pd = new Derived;
-//  pd->func();
-//  pd->foo();  // static binding, Base::foo()
-//  pd->bar();
-//
+  // pd->func();
+  // pd->foo();  // static binding, Base::foo()
+  // pd->bar();
+
   Base* pb = new Base;
-//  pb->func();
+  pb->func();
 
   Base    base;
   Derived derived;
 
-//  base.foo();    // no virtual, static type, Base::foo()
-//  derived.foo(); // static type, Base::foo()
+  // base.foo();    // no virtual, static type, Base::foo()
+  // derived.foo(); // static type, Base::foo()
 
   Derived* ppd = new Derived;
   ppd->foo();  // Derived::foo()

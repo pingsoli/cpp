@@ -27,8 +27,8 @@ int main(int argc, char **argv)
 {
   Accumulator acc;
 
-//  std::cout << acc(10) << std::endl;  // print "10"
-//  std::cout << acc(20) << std::endl;  // print "30"
+  // std::cout << acc(10) << std::endl;  print "10"
+  // std::cout << acc(20) << std::endl;  print "30"
 
   std::vector<int> vec{1, 2, 3};
   std::for_each(vec.begin(), vec.end(), std::ref(acc));

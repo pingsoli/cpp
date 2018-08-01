@@ -62,3 +62,7 @@ target_link_libraries(timer -pthread)
 
 add_executable(know_variable_type know_variable_type.cpp)
 add_executable(auto auto.cpp)
+add_executable(enum enum.cpp)
+add_executable(override override.cpp)
+add_executable(helloworld helloworld.cpp)
+
