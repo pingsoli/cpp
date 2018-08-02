@@ -1,17 +1,23 @@
 ///////////////////////////////////////////////////////////////////////////////
-//
 // `constexpr` is c++11 standardation.
 //
 // The advantage of constexpr ?
 // It's explicit and strong.
 //
 // What does 'constexpr' mean ?
-// constexpr variable is guaranteed to have a value available at compile time.
+// constexpr indicates a value that's is not only a constant, it's known during
+// compilation.
+//
+// constexpr guarantee the object is const, but constant object may not be
+// constexpr.
+//
+// in C++11 and C++14
+// if we specifiy a function with constexpr, that means the funtion will return
+// a const value known at compile time.
+// C++14 restrictions is more looser. the setter can be constexpr.
 //
 // Summary:
-// using constexpr when function returns a constexpr.
 // using const when the object is constant, although constexpr works fine.
-//
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
@@ -55,8 +61,7 @@ public:
 // return size of an array as a compile-time constant. (The arrary paramter
 // has no name, because we care only about the number of elements it contains.)
 template <typename T, std::size_t N>
-constexpr std::size_t arraySize(T (&)[N]) noexcept
-{
+constexpr std::size_t arraySize(T (&)[N]) noexcept {
   return N;
 }
 

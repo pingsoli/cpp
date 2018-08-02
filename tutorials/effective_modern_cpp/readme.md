@@ -141,12 +141,55 @@ etc., over the member function counterparts.
 In C-style code, you can use begin(), end() methods to get the first or end element
 from a array, it's more generic.
 
-#### Item 14:
-#### Item 15:
-#### Item 16:
-#### Item 17:
+#### Item 14: Declare functions if they won't emit exceptions.
+1) noexcept is part of a function's interface, and that means that callers may
+depend on it.
+2) noexcept functions are more optimizable than non-except functions.
+3) noexcept is particularly valuable for the move operations, swap, memory
+deallocation functions, and destructors.
+4) Most functions are exception-neutral rather than noexcept.
+
+#### Item 15: Use constexpr whenever possible.
+1) constexpr objects are const and are initialized with values known during
+compilation.
+2) constexpr functions can produce compile-time results when called with
+arguments whose values are known during compilation.
+3) constexpr object and functions may be used in wide range of contexts than
+non-constexpr objects and functions.
+4) constexpr is part of an object's or function's interface.
+
+#### Item 16: Make const member functions thread safe.
+1) Make const member functions thread safe unless you're certain they'll never
+be used in a concurrent context.
+2) Use of std::atomic variable may offer better performance than a mutex, but
+they're suited for mainipulation of only a single variable or memory location.
+
+#### Item 17: Understand special member function generation.
+1) The special member functions are those compiler may generate on their own:
+default constructor, destructor, copy operations, move operations.
+2) Move operations are generated only for classes lacking explicitly
+declared move operations, copy operations, and a destructor.
+3) The copy constructor is generated only for classes lacking an explicitly
+declared copy constructor, and it's deleted if a move operation is declared.
+The copy assignment operator is generated only for classes lacking an explicitly
+declared copy assignment operator, and it's deleted if a move operation is
+declared. Generation of the copy operations in classes with an explicitly
+declared destructor is deprecated.
+4) Member function templates never suppress generation of special member functions.
 
 ### Chapter 4: Smart Pointers
+#### Item 18: Use std::unique_ptr for exclusive-ownership resource management.
+1) std::unique_ptr is a small, fast, move-only smart pointer for managing
+resource with exclusive-ownership semantics.
+2) By default, resource destruction takes place via delete, but custom deleters
+can be specified. Stateful deleters and function pointers as deleters increase
+the size of std::unique_ptr objects.
+3) Converting std::unique_ptr to a std::shared_ptr is easy.
+
+#### Item 19:
+#### Item 20:
+#### Item 21:
+#### Item 22:
 
 ### Chatper 5: Rvalue References, Move Semantics, and Perfect Forwarding
 
