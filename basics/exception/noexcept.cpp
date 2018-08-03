@@ -1,3 +1,10 @@
+// noexcept specification indicate the function will not throw any exception.
+// the compiler will optimize the code accorindg `noexcept`.
+// but if you throw a exception from a noexcept function, std::terminate() will
+// be triggered.
+//
+// Summary:
+// 1) use noexcpet if you make sure the function won't throw any exceptions.
 #include <exception>
 #include <iostream>
 

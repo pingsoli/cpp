@@ -1,13 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // if we throw exceptions in destructors, the program will crash.
 //
 // there are two ways to solve it:
 // Solution 1: Destructor swallow the exception
 // Solution 2: Move the exception-prone code to a different function.
-//
 ////////////////////////////////////////////////////////////////////////////////
-
 #include <string>
 #include <iostream>
 

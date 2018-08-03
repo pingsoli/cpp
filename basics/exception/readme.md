@@ -1,5 +1,4 @@
-
-Item 11: Prevent exceptions from leaving destructors.  
+Effective Modern CPP Item 11: Prevent exceptions from leaving destructors.  
 
 ## References
 [1] http://ptgmedia.pearsoncmg.com/imprint_downloads/informit/aw/meyerscddemo/DEMO/MAGAZINE/SU_FRAME.HTM#destruct  

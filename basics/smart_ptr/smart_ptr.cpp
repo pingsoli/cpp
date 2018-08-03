@@ -49,5 +49,13 @@ int main(int argc, char** argv)
   // now upi is dangling smart pointer.
   //////////////////////////////////////////////////////////////////////////////
 
+  {
+    // custom the deleter for std::shared_ptr and std::unique_ptr
+    // the difference: the deleter is a part of std::unique_ptr,
+    // but is not part of std::shared_ptr.
+    // specify the deleter doesn't change the size of a std::shared_ptr object.
+  }
+
+
   return 0;
 }

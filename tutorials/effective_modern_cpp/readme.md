@@ -186,14 +186,52 @@ can be specified. Stateful deleters and function pointers as deleters increase
 the size of std::unique_ptr objects.
 3) Converting std::unique_ptr to a std::shared_ptr is easy.
 
-#### Item 19:
-#### Item 20:
-#### Item 21:
+#### Item 19: Use std::shared_ptr for shared-ownership resource management.
+1) std::shared_ptr offer convenience approaching that of garbage collection
+for the shared lifetime management of arbitrary resources.
+2) Compared to std::unique_ptr, std::shared_ptr objects are typically twice
+as big, incur overload of control blocks, and require atomic reference count
+manipulates.
+3) Default resource destruction is via delete, but custom deleters are supported.
+the type of the deleter has no effect on the type of the std::shared_ptr.
+4) Avoid creating std::shared_ptrs from variables of raw pointer type.
+
+#### Item 20: Use std::weak_ptr for std::shared_ptr-like pointers that can dangle.
+1) Use std::weak_ptr for std::shared_ptr-like pointers that can dangle.
+2) Potential use cases for std::weak_ptr include caching, observer list, and the
+prevention of std::shared_ptr cycles.
+
+#### Item 21: Prefer std::make_unique and std::make_shared to direct use of new.
+1) Compared to direct use of new, make functions elimiante source code
+duplication, improve exception safety, and, for std::make_shared and
+std::allocate_shared, generate code that's faster and smaller.
+2) Situations where use of make functions is inappropriate include the need to
+specify custom deleters and a desire to pass braced initializers.
+3) For std::shared_ptr, additional situations where make functions may be
+ill-advised include(1) classes with custom memory management and (2) systems
+with memory concerns, very large objects, and std::weak_ptrs that outlive
+the corresponding std::shared_ptrs.
+
 #### Item 22:
 
 ### Chatper 5: Rvalue References, Move Semantics, and Perfect Forwarding
 
 ### Chapter 6: Lambda Expression
+#### Item 31: Avoid default capture modes.
+1) Default by-reference capture can lead to dangling references.
+2) Defautl by-value is suspectible to dangling pointers (especially this). and
+it misleadingly suggests that lambda are self-contained.
+
+#### Item 32: Use inti capture to move objects into closure.
+1) Use C++14's init capture to move objects to closure.
+2) In C++11, emulate init capture via hand-written class or std::bind.
+
+#### Item 33: Use decltype on auto&& parameters to std::forward them.
+#### Item 34: Prefer lambdas to std::bind.
+1) Lambdas are more readable, more expressive, and may be more efficient than
+using std::bind.
+2) In C++11 only, std::bind may be useful for implementing move capture or
+for binding objects with templatized function call operators.
 
 ### Chapter 7: The Concurrency API
 
