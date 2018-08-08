@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
   {
     // remove/erase the contents(may duplicate) from map
     std::map<int, char> mi = {{1, 'a'}, {2, 'b'}, {3, 'c'}, {4, 'd'}};
-    std::map<int, char>::iterator it = mi.begin();
+    auto it = mi.begin();
     int matched_value = 2;
 
     // value_type<const K, V>, it's more effective than complex object.
@@ -50,6 +50,25 @@ int main(int argc, char *argv[])
     // multimap's iterator remains valid until erased from map.
     // map<x, vector<y>> may have empty value set with existing key.
     // prefer multimap than map of vectors.
+  }
+
+  {
+    // emplace data(implicity constructor), and clear the map, check out the data.
+    std::map<int, std::string> mymap;
+
+    mymap.emplace(1, "hello");
+    mymap.emplace(2, "world");
+    mymap.emplace(3, "test");
+
+    // traverse the map
+    for (auto it = mymap.begin(); it != mymap.end(); ++it)
+      std::cout << it->first << " : " << it->second.data() << '\n';
+
+    mymap.clear();
+
+    std::cout << "after clearing the map ..." << '\n';
+    for (auto it = mymap.begin(); it != mymap.end(); ++it)
+      std::cout << it->first << " : " << it->second.data() << '\n';
   }
 
   return 0;

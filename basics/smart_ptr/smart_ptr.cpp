@@ -56,6 +56,5 @@ int main(int argc, char** argv)
     // specify the deleter doesn't change the size of a std::shared_ptr object.
   }
 
-
   return 0;
 }

@@ -1,5 +1,4 @@
 ///////////////////////////////////////////////////////////////////////////////
-//
 // std::async and std::future testing
 //
 // Don't care about the processing of the data, get the data at the end.
@@ -9,7 +8,6 @@
 // We must specify std::launch::async on the std::async.
 //
 // std::deferred, std::async
-//
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>

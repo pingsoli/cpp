@@ -7,44 +7,45 @@
 int main(int argc, char *argv[])
 {
   {
-    // // operator== and operator< in associative container
-    // // understand equality and equivalence.
-    // struct InsensitiveCompare {
-    //   bool operator()(const std::string& a, const std::string& b) const {
-    //     return !(std::equal(a.begin(), a.end(),
-    //                       b.begin(), b.end(),
-    //                       [] (char a, char b) {
-    //                         return std::tolower(a) == std::tolower(b);
-    //                       }));
-    //   }
-    // };
-    //
-    // // the default comparison function is std::less, the possible implementation
-    // // is:
-    // // constexpr bool operator()(const T &lhs, const T &rhs) const {
-    // //   return lhs < rhs;
-    // // }
-    // // std::set<std::string, InsensitiveCompare> str;
-    // std::set<std::string> str;
-    //
-    // str.insert("pingsoli");
-    // str.insert("PingsOli"); // insert successfully ?
-    // str.insert("hello");
-    // str.insert("world");
-    //
-    // for (auto it = str.begin(); it != str.end(); ++it)
-    //   std::cout << *it << ' ';
-    // std::cout << std::endl;
-    //
-    // // std::copy(str.begin(), str.end(),
-    // //     std::ostream_iterator<std::string>(std::cout, " "));
-    // // std::cout << '\n';
-    //
-    // // if we find "PingsOli" from set
-    // if (std::find(str.begin(), str.end(), "PingsOli") != str.end())
-    //   std::cout << "Found" << '\n';
-    // else
-    //   std::cout << "Not Found" << '\n';
+    // operator== and operator< in associative container
+    // understand equality and equivalence.
+
+    struct InsensitiveCompare {
+      bool operator()(const std::string& a, const std::string& b) const {
+        return !(std::equal(a.begin(), a.end(),
+                          b.begin(), b.end(),
+                          [] (char a, char b) {
+                            return std::tolower(a) == std::tolower(b);
+                          }));
+      }
+    };
+
+    // the default comparison function is std::less, the possible implementation
+    // is:
+    // constexpr bool operator()(const T &lhs, const T &rhs) const {
+    //   return lhs < rhs;
+    // }
+    // std::set<std::string, InsensitiveCompare> str;
+    std::set<std::string> str;
+
+    str.insert("pingsoli");
+    str.insert("PingsOli"); // insert successfully ?
+    str.insert("hello");
+    str.insert("world");
+
+    for (auto it = str.begin(); it != str.end(); ++it)
+      std::cout << *it << ' ';
+    std::cout << std::endl;
+
+    // std::copy(str.begin(), str.end(),
+    //     std::ostream_iterator<std::string>(std::cout, " "));
+    // std::cout << '\n';
+
+    // if we find "PingsOli" from set
+    if (std::find(str.begin(), str.end(), "PingsOli") != str.end())
+      std::cout << "Found" << '\n';
+    else
+      std::cout << "Not Found" << '\n';
   }
 
   {

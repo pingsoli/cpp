@@ -1,8 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
-//
 // thread_local since c++11
 // if a variable is thread_local then each thread has its own copy.
-//
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <thread>
@@ -25,11 +23,9 @@ void thread_func(int id) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-//
 // Passing thread_local by address to another thread
 
-void another_thread(int* p)
-{
+void another_thread(int* p) {
   *p = 42;
 }
 
@@ -56,9 +52,8 @@ void do_nothing() {}
 int main(int argc, char** argv)
 {
   /////////////////////////////////////////////////////////////////////////////
-
-  // general usage
   {
+    // general usage
     i = 9;
 
     std::thread t1(thread_func, 1);
@@ -73,10 +68,9 @@ int main(int argc, char** argv)
   }
 
   /////////////////////////////////////////////////////////////////////////////
-
-  // passing address by pointer to another thread
-  // another thread modify thread_local variable
   {
+    // passing address by pointer to another thread
+    // another thread modify thread_local variable
     i = 9;
     std::thread t1(another_thread, &i);
     t1.join();
@@ -84,13 +78,10 @@ int main(int argc, char** argv)
   }
 
   /////////////////////////////////////////////////////////////////////////////
-
   {
     std::thread t1(do_nothing);
     t1.join();
   }
-
-  /////////////////////////////////////////////////////////////////////////////
 
   return 0;
 }

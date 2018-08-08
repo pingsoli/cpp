@@ -1,6 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////
-//
 // functor
+//
+// the use cases about fctor.
+// 1) pred for STL, deleter
 //
 // References
 // [1] https://www.quantstart.com/articles/Function-Objects-Functors-in-C-Part-1
@@ -14,8 +16,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-struct BinaryFunction
-{
+struct BinaryFunction {
   virtual double operator()(double left, double right) = 0;
 };
 

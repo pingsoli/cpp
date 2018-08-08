@@ -212,9 +212,77 @@ ill-advised include(1) classes with custom memory management and (2) systems
 with memory concerns, very large objects, and std::weak_ptrs that outlive
 the corresponding std::shared_ptrs.
 
-#### Item 22:
+#### Item 22: When using the pimpl idiom, define special member functions in the implementation file.
+1) The Pimpl Idiom decreases the build times by reducing compilation dependencies between
+class clients and class implementations.
+2) For std::unique_ptr pImpl pointers, declare special member functions in the
+class header, but implementation them in the implementation file. Do this even
+if the default function implementations are acceptable.
+3) The above advice applies to std::unique_ptr, but not to std::shared_ptr.
 
 ### Chatper 5: Rvalue References, Move Semantics, and Perfect Forwarding
+#### Item 23: Understand std::move and std::forward.
+1) std::move performs an unconditional cast to an rvalue. In and itself, it
+doesn't move anything.
+2) std::forward casts its argument to an rvalue only if that argument is bound
+to an rvalue.
+3) Neither std::move nor std::forward do anything at runtime.
+
+#### Item 24: Distinguish universal references from rvalue references.
+1) If a function parameter has type T&& for a deduced type T, or if an object is
+declared using auto&&, the parametter or object is a universal reference.
+2) If the form of the type declaration isn't precisely type&&, of if type
+deduction does not occur, type&& denotes an rvalue reference.
+3) Universal references correspond to rvalue references if they're initialzed
+with rvalues. They correspond to lvalue references if they're initialized with
+lvalues.
+
+#### Item 25: Use std::move on rvalue references, std::forward on universal references.
+1) Apply std::move to rvalue references and std::forward to universal references
+the last time each is used.
+2) Do the same thing for rvalue references and universal references being returned
+from functions that return by value.
+3) Never apply std::move and std::forward to local object if they would otherwise
+be eligible for the return value optimization.
+
+#### Item 26: Avoid overloading on universal references.
+1) Overloading on universal references almost always leads to the universal
+reference overload being called more frequently than expected.
+2) Perfect forwarding constructors are especially problematic, because they're
+typically better matches than copy constructors for non-const lvalues, and they
+can hijack class calls to base class copy and move constructors.
+
+#### Item 27: Familiarize yourself with alternatives to overloading on universal references.
+1) Alternatives to the combination of universal references and overloading include
+the use of distinct function names, passing parameters by lvalue-reference-to-const,
+passing parameters by value, and using tag dispatch.
+2) Constraining templates via std::enable_if permits the use of universal references
+and overloading together, but it controls the conditions under which compilers
+may use the universal reference overloads.
+3) Universal references parameters often have efficiency advantages, but they
+typically have usability disadvantages.
+
+#### Item 28: Understand reference collapsing.
+1) Reference collapsing occurs in four contexts: template instantation, auto type
+generation, creation and use of typedef's and alias declarations, and decltype.
+2) When compilers generate a reference to a reference in a reference collapsing
+context, the result becomes a single reference. If ethier of the original
+references is an lvalue reference, the result is an lvalue referenc. Otherwise
+is't an rvalue reference.
+3) Universal references are rvalue references in contexts where type deduction
+distinguish lvalues from rvalues and where reference collapsing occurs.
+
+#### Item 29: Assume that move operations are not present, not cheap, and not used.
+1) Assume that move operations are not present, not cheap, and not used.
+2) In code with known types or support for move semantics, there is no need for
+assumptions.
+
+#### Item 30: Familiarize yourself with perfect forwarding failure cases.
+1) Perfect forwarding fails when temlate type deduction fails or when it deduces
+the wrong type.
+2) The kinds of arguments that lead to perfect forwarding are braced initializers,
+null pointers expressed as 0 or NULL, declaration-only integeral const static data
+members, template and overloaded function names, and bitfields.
 
 ### Chapter 6: Lambda Expression
 #### Item 31: Avoid default capture modes.
@@ -234,6 +302,43 @@ using std::bind.
 for binding objects with templatized function call operators.
 
 ### Chapter 7: The Concurrency API
+#### Item 35: Prefer task-based programming to thread-based.
+1) The std::thread API offers no direct way to get return values from asynchronously
+run functions, and if those functions throw, the program is terminated.
+2) Thread-based programming calls for manual management of thread exhaustion,
+load-balancing, and adaptation to new platforms.
+3) Task-based programming via std::async with the default launch policy handles
+most of these issues for you.
+
+#### Item 36: Specify std::launch::async if asynchronicity is essential.
+1) The default launch policy for std::async permits both asynchronus and
+synchronous task execution.
+2) This flexibility leads to uncertainty when accessing thread_locals, implies
+that the task may never execute, and affects program logic for timeout-based
+wait calls.
+3) Specify std::launch::async if asynchronous task execution is essential.
+
+#### Item 37:
+#### Item 38:
+#### Item 39:
+#### Item 40:
 
 ### Chapter 8: Tweaks
+#### Item 40: Consider pass by value for copyable parameters that are cheap to move and always copyied.
+1) For copyable, cheap-to-move parameter that are always copied, pass by value
+may be nearly as efficient as pass by reference, it's easier to implement, and it
+can generate less object code.
+2) Copying parameters via construction may be significantly more expensive than
+copying them via assignment.
+3) Pass by value is subject to the slicing problem, so it's typically inappropriate
+for base class paramter types.
 
+#### Item 41: Consider emplacement instead of insertion.
+1) In priciple, emplacement functions should sometimes be more efficient than
+insertion counterparts, and they should never be less efficient.
+2) In practice, they're most likely to be faster when (1) the value being added
+is constructed in the container, not assigned; (2) the argument type(s) passed
+differ from the type held by the container; and (3) the container won't reject
+the value being added due to it being a duplicate.
+3) Emplacement functions may perform type conversions that would be rejected by
+insertion functions.

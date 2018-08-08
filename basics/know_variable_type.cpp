@@ -3,6 +3,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
+#include <typeinfo>
 
 template <typename T>
 class TD;
@@ -36,8 +37,8 @@ int main(int argc, char *argv[])
   // 2 errors generated.
 
   // sometimes it's hard to understand.
-  std::cout << typeid(x).name() << '\n';  // i
-  std::cout << typeid(y).name() << '\n';  // PKi
+  std::cout << typeid(x).name() << '\n'; // i
+  std::cout << typeid(y).name() << '\n'; // PKi
 
   return 0;
 }

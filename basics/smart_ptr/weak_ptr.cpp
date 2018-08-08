@@ -15,18 +15,27 @@ int main(int argc, char *argv[])
 {
   std::shared_ptr<int> pi(new int(10));
 
-  pi.reset();
+  // pi.reset(); // clear the shared_ptr, the use_count will be zero.
 
-  // check the std::shared_ptr is dangle ?
-  std::weak_ptr<int> wi(pi);
+  // create weak pointer from shared_ptr.
+  // std::weak_ptr<int> wi(pi); // same as the following
+  std::weak_ptr<int> wi = pi;
+
+  // only check the shared_ptr whether is present.
   if (!wi.expired()) {
     std::cout << *pi << '\n';
   }
 
-  // get std::shared_ptr from std::weak_ptr
-  auto npi = wi.lock();
-  if (npi)
-    std::cout << *npi << '\n';
+  // get std::shared_ptr from std::weak_ptr. the weak pointer doesn't have *
+  // and -> operators overload, so you cannot dereference underlying pointer
+  // before converting to shared_ptr(via lock())
+  if (auto observe = wi.lock()) {
+    std::cout << *observe << '\n';
+  }
+
+  // get the use count of shared_ptr, return 0 if destoryed.
+  std::cout << "shared_ptr use count: "
+            << wi.use_count() << '\n';
 
   // same as before
   if (pi) {

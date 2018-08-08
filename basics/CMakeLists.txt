@@ -1,23 +1,19 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.12)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-#set(CMAKE_CXX_FLAGS "-fno-elide-constructors")
+# set(CMAKE_CXX_FLAGS "-fno-elide-constructors")
 
-#set(CMAKE_CXX_FLAGS "-O3")  # optimize level
-# set(CMAKE_CXX_FLAGS "-fdump-tree-optimized")  # gcc optimize
+# set(CMAKE_CXX_FLAGS "-O3")  # optimize level
+# set(CMAKE_CXX_FLAGS "-fdump-tree-optimized")  # optimization, gcc only
 
 ################################################################################
 add_executable(future        future.cpp)
 target_link_libraries(future pthread)
 
-add_executable(thread_local        thread_local.cpp)
-target_link_libraries(thread_local pthread)
-
-################################################################################
 add_executable(big_and_little_endian                      big_and_little_endian.cpp)
 add_executable(compute_elapsed_time                       compute_elapsed_time.cpp)
 add_executable(const_trick                                const_trick.cpp)
@@ -51,7 +47,6 @@ add_executable(using_and_typedef using_and_typedef.cpp)
 add_executable(reference reference.cpp)
 add_executable(noncopyable noncopyable.cpp)
 add_executable(inheritance inheritance.cpp)
-add_executable(sigleton sigleton.cpp)
 add_executable(shallow_and_deep_copy shallow_and_deep_copy.cpp)
 
 add_executable(timer timer.cpp)
@@ -65,3 +60,8 @@ add_executable(helloworld helloworld.cpp)
 add_executable(constructor constructor.cpp)
 add_executable(lambda lambda.cpp)
 add_executable(variadic_template variadic_template.cpp)
+
+add_executable(pimplMain pimplMain.cpp pimpl.cpp)
+add_executable(overload_universal_references overload_universal_references.cpp)
+add_executable(SFINAE SFINAE.cpp)
+add_executable(tag_dispatch tag_dispatch.cpp)

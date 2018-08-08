@@ -3,6 +3,9 @@
 // 1) type less code. specify deleter for smart pointer like std::shared_ptr.
 // 2) as a predicate for STL algorithms.
 //
+// C++14 has a more powerful lambda expression, can replace std::bind at most place.
+// template deduction.
+//
 // precaute the references dangle and pointer dangle in lambda.
 
 #include <iterator>

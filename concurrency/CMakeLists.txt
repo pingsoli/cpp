@@ -35,3 +35,7 @@ target_link_libraries(ThreadPool -pthread)
 
 add_executable(create_future create_future.cpp)
 target_link_libraries(create_future -pthread)
+
+add_executable(hardware_thread_num hardware_thread_num.cpp)
+target_link_libraries(hardware_thread_num -pthread)
+

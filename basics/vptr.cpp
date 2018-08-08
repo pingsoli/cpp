@@ -1,5 +1,4 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // Virtual Function and Virtual Table
 //
 // on x64 system, the pointer size is 8 bytes.
@@ -9,7 +8,6 @@
 // nown as vtable for the class. The table is created compile time v_ptr holds
 // the address of v_table of the corresponding class. vtable is a array of
 // function pointers pointing to a virtual function.
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
