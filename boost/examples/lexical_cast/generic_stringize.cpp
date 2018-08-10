@@ -22,9 +22,7 @@ public:
   }
 };
 
-/*
- * boost::fusion works for boost::tuple
- */
+// boost::fusion works for boost::tuple
 template <class Sequence>
 std::string stringize(const Sequence& seq) {
   std::string result;
@@ -35,11 +33,11 @@ std::string stringize(const Sequence& seq) {
 int main(int argc, char** argv)
 {
   boost::tuple<char, int, char, int> decim('-', 10, 'e', 5);
-//  assert(stringize(decim) == "-10e5");
+  // assert(stringize(decim) == "-10e5");
   std::cout << stringize(decim) << std::endl;
 
   std::pair<int, std::string> value_and_type(270, "pingsoli");
-//  assert(stringize(value_and_type) == "270pingsoli");
+  // assert(stringize(value_and_type) == "270pingsoli");
   std::cout << stringize(value_and_type) << std::endl;
 
   return 0;

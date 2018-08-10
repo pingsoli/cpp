@@ -5,8 +5,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-# set(CMAKE_CXX_FLAGS "-fno-elide-constructors")
+set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time")
+set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
 
+# set(CMAKE_CXX_FLAGS "-fno-elide-constructors")
 # set(CMAKE_CXX_FLAGS "-O3")  # optimize level
 # set(CMAKE_CXX_FLAGS "-fdump-tree-optimized")  # optimization, gcc only
 
@@ -65,3 +67,5 @@ add_executable(pimplMain pimplMain.cpp pimpl.cpp)
 add_executable(overload_universal_references overload_universal_references.cpp)
 add_executable(SFINAE SFINAE.cpp)
 add_executable(tag_dispatch tag_dispatch.cpp)
+add_executable(bit_field bit_field.cpp)
+add_executable(template_partial_specialization template_partial_specialization.cpp)

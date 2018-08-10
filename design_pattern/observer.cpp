@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 //  total += cart->Visit(book);
 //  total += cart->Visit(pen);
 //  total += cart->Visit(computer);
-//    
+//
 //  std::cout << total << std::endl;
 //  // 5510
 

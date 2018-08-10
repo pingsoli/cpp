@@ -318,10 +318,33 @@ that the task may never execute, and affects program logic for timeout-based
 wait calls.
 3) Specify std::launch::async if asynchronous task execution is essential.
 
-#### Item 37:
-#### Item 38:
-#### Item 39:
-#### Item 40:
+#### Item 37: Make std::threads unjoinable on all paths.
+1) Make std::threads unjoinable on all paths.
+2) join-on-destruction can lead to difficult-to-debug performance anomalies.
+3) detach-on-destrution can lead to difficult-to-debug undefined behavior.
+4) Declare std::thread objects last in list of data members.
+
+#### Item 38: Be aware of varying thread handle destructor behavior.
+1) Future destructors normally just destroy the future's data member.
+2) The final future referring to a shared state for a non-deferred task launched
+via std::async blocks until the task completes.
+
+#### Item 39: Consider void futures for one-shot event communications.
+1) For simple event communication, condvar-based design require a superfluous
+mutex, impose constraints on the relative progres of detecting and reacting
+tasks, and require reacting tasks to verify that the event has taken place.
+2) Designs employing a flag avoid those problems, but are based on polling,
+not blocking.
+3) A condvar and flag can be used together, but the resulting communications
+mechanism is somewhat stilted.
+4) Using std:promise and futures dodges these issues, but the approach use heap
+memory for shared states, and it's limited to one-shot communication.
+
+#### Item 40: Use std::atomic for concurrency, volatile for special memory.
+1) std::atomic is for data accessed from multiple threads without using mutexs,
+It's a cool for writing concurrent software.
+2) volatile is for memory where reads and writes should not be optimized away.
+It's cool for working with special memory.
 
 ### Chapter 8: Tweaks
 #### Item 40: Consider pass by value for copyable parameters that are cheap to move and always copyied.

@@ -29,7 +29,7 @@ public:
     for (const auto& obs : observers_.at(event)) obs();
   }
 
-  // Disallow copying and assigning
+  // Disabling copy and assignment operations.
   Subject(const Subject&) = delete;
   Subject& operator=(const Subject&) = delete;
 

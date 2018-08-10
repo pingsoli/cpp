@@ -39,3 +39,8 @@ target_link_libraries(create_future -pthread)
 add_executable(hardware_thread_num hardware_thread_num.cpp)
 target_link_libraries(hardware_thread_num -pthread)
 
+add_executable(ThreadRAII ThreadRAII.cpp)
+target_link_libraries(ThreadRAII -pthread)
+
+add_executable(async async.cpp)
+target_link_libraries(async -pthread)
