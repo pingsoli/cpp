@@ -209,5 +209,14 @@ int main(int argc, char *argv[])
     std::cout << '\n';
   }
 
+  {
+    std::vector<int> vi(4);
+    std::cout << vi.capacity() << '\n';
+
+    // Bad idea.
+    std::vector<int> vi2(-1);
+    std::cout << vi2.capacity() << '\n';
+  }
+
   return 0;
 }

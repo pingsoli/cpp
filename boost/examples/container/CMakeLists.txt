@@ -7,12 +7,10 @@ set(CMAKE_BUILD_TYPE Debug)
 set(Boost_USE_STATIC_LIBS    ON)
 set(BOOST_ROOT /usr/local/boost)
 
-find_package(Boost 1.66.0)
+find_package(Boost)
 if (Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
 endif()
 
-##############################
-add_executable(any
-  any.cpp
-)
+add_executable(any any.cpp)
+add_executable(circular_buffer circular_buffer.cpp)

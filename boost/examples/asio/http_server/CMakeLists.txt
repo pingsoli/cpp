@@ -26,5 +26,5 @@ add_executable(http_server
 
 target_link_libraries(http_server
   boost_system
-  pthread
+  -pthread
 )

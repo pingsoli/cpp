@@ -1,16 +1,16 @@
-/*
- * Don't care about type, you can store any type you wish.
- * int, bool, float, double or std container.
- *
- * Implementation details:
- * http://www.two-sdg.demon.co.uk/curbralan/papers/ValuedConversions.pdf
- *
- * boost::any VS. boost::variant ?
- * http://www.boost.org/doc/libs/1_66_0/doc/html/variant/misc.html#variant.versus-any
- *
- * boost::any can be used in std::map ?
- * Yes, of course, but you must implement your own compare function.
- */
+////////////////////////////////////////////////////////////////////////////////
+// Don't care about type, you can store any type you wish.
+// int, bool, float, double or std container.
+//
+// Implementation details:
+// http://www.two-sdg.demon.co.uk/curbralan/papers/ValuedConversions.pdf
+//
+// boost::any VS. boost::variant ?
+// http://www.boost.org/doc/libs/1_66_0/doc/html/variant/misc.html#variant.versus-any
+//
+// boost::any can be used in std::map ?
+// Yes, of course, but you must implement your own compare function.
+////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <string>
 
@@ -37,7 +37,7 @@ int main(int argc, char** argv)
 
     // Convert to real-type
     boost::any z = 1;
-    int *i = boost::any_cast<int>(&it);
+    int *i = boost::any_cast<int>(&z);
     std::cout << *i << '\n';
     //////////////////////////////////////////////////////////////////////
 

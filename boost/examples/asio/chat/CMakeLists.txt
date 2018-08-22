@@ -19,7 +19,7 @@ add_executable(chat_client
 
 target_link_libraries(chat_client
   boost_date_time boost_system boost_thread
-  pthread
+  -pthread
 )
 
 ##############################
@@ -29,5 +29,5 @@ add_executable(chat_server
 
 target_link_libraries(chat_server
   boost_date_time boost_system boost_thread
-  pthread
+  -pthread
 )

@@ -1,3 +1,11 @@
+////////////////////////////////////////////////////////////////////////////////
+// there are three classic algorithms using stl algorithm
+// it's more concise approaches.
+// 1) insertition sort
+// 2) quick sort
+// 3) trim string (trimRight, trimRight and trim operations)
+////////////////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -12,7 +20,6 @@
 
 #define PRINT_TEST_TITLE() std::cout << std::endl << "*** " \
                                      << __func__ << " ***" << std::endl
-
 // Helper functions
 
 template <typename T>
