@@ -1,15 +1,15 @@
 ////////////////////////////////////////////////////////////////////////////////
-//
 // variable length and type of arguments of function ?
 // passing different type of arguments ?
-//
+// ellipsis
 ////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <type_traits>
 
-#define USE_C 1
+#define USE_C   0
+#define USE_C11 0
 
-#ifdef  USE_C
+#if USE_C
 #include <cstdarg>
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -33,10 +33,7 @@ int add(int count, ...)
 
    return r;
 }
-//
-////////////////////////////////////////////////////////////////////////////////
 #elif
-////////////////////////////////////////////////////////////////////////////////
 // Recursive Pack Expansion
 template <typename Arg,
           typename std::enable_if<std::is_integral<Arg>::value>::type* = nullptr>
@@ -47,11 +44,13 @@ template <typename Arg, typename... Ts,
 int add(Arg f, Ts... rest) {
   return f + add(rest...);
 }
-////////////////////////////////////////////////////////////////////////////////
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
 // Braced Initialier Expansion, only support same type.
+
+#if USE_C11
+// c++11
 template <typename Arg, typename... Ts,
          typename std::enable_if<std::is_integral<Arg>::value>::type* = nullptr>
 int add_m(Arg i, Arg j, Ts... all)
@@ -64,11 +63,33 @@ int add_m(Arg i, Arg j, Ts... all)
 
   return r;
 }
+#else
+// c++14
+template <typename Arg, typename... Ts,
+         typename std::enable_if_t<std::is_integral<Arg>::value>* = nullptr>
+int add_m(Arg i, Arg j, Ts... all)
+{
+  int values[] = { j, all... };
+  int r = i;
+
+  for (auto v : values)
+    r += v;
+
+  return r;
+}
+#endif
+
 ////////////////////////////////////////////////////////////////////////////////
 
 int main(int argc, char **argv)
 {
-  int result = add(6, 1, 2, 3, 4, 5, 6);
+  int result = 0;
+  // c legacy
+  // result = add(6, 1, 2, 3, 4, 5, 6);
+  // std::cout << result << std::endl;
+
+  // c++
+  result = add(1, 2, 3, 4, 5, 6);
   std::cout << result << std::endl;
 
   // brace-closing initializer list
