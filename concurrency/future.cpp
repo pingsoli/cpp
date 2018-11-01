@@ -21,16 +21,14 @@
 // protect std::cout
 std::mutex cout_mutex;
 
-int do_async_job()
-{
+int do_async_job() {
   std::lock_guard<std::mutex> lk(cout_mutex);
   std::cout << "async thread id: " << std::this_thread::get_id() << std::endl;
   std::this_thread::sleep_for(std::chrono::seconds(2));
   return 100;
 }
 
-void do_other_thing()
-{
+void do_other_thing() {
   std::this_thread::sleep_for(std::chrono::seconds(2));
 }
 

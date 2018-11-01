@@ -44,3 +44,9 @@ target_link_libraries(ThreadRAII -pthread)
 
 add_executable(async async.cpp)
 target_link_libraries(async -pthread)
+
+add_executable(mutex mutex.cpp)
+target_link_libraries(mutex -pthread)
+
+add_executable(thread thread.cpp)
+target_link_libraries(thread -pthread)
