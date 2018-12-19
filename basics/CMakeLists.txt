@@ -1,12 +1,13 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_BUILD_TYPE Debug)
 
-set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time")
-set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
+# Output the statistic of execution time.
+# set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CMAKE_COMMAND} -E time")
+# set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK "${CMAKE_COMMAND} -E time")
 
 # set(CMAKE_CXX_FLAGS "-fno-elide-constructors")
 # set(CMAKE_CXX_FLAGS "-O3")  # optimize level
@@ -46,7 +47,7 @@ add_executable(decltype                                   decltype.cpp)
 add_executable(stringstream                               stringstream.cpp)
 
 add_executable(using_and_typedef using_and_typedef.cpp)
-add_executable(reference reference.cpp)
+add_executable(pointer_and_reference pointer_and_reference.cpp)
 add_executable(noncopyable noncopyable.cpp)
 add_executable(inheritance inheritance.cpp)
 add_executable(shallow_and_deep_copy shallow_and_deep_copy.cpp)
@@ -69,3 +70,10 @@ add_executable(SFINAE SFINAE.cpp)
 add_executable(tag_dispatch tag_dispatch.cpp)
 add_executable(bit_field bit_field.cpp)
 add_executable(template_partial_specialization template_partial_specialization.cpp)
+add_executable(overloading overloading.cpp)
+add_executable(overriding overriding.cpp)
+add_executable(hiding hiding.cpp)
+add_executable(try_catch try_catch.cpp)
+add_executable(diamond_problem_of_multiple_inheritance diamond_problem_of_multiple_inheritance.cpp)
+
+add_executable(final_keyword final_keyword.cpp)

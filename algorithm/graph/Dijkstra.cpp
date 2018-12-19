@@ -3,7 +3,7 @@
 // Dijkstra algorithm
 // 1) make use of priority queue
 //
-// the following implemenation efficiency: O(m log n)
+// the following implementation efficiency: O(m log n)
 //
 ///////////////////////////////////////////////////////////////////////////////
 

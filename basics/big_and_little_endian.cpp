@@ -13,12 +13,13 @@
 // address increase
 // ---------------------------------->
 // 00010010 00110100 01010110 01111000
-//
+//    12       34       56       78
 //
 // Little-Endian
 // address increase
 // ---------------------------------->
 // 01111000 01010110 00110100 00010010
+//    78       56       34       12
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -30,7 +31,7 @@ int main(int argc, char** argv)
 
   int value = 0x12345678;
 
-  // ouput 78 is big-endian, 12 is little-endian
+  // ouput 12 is big-endian, 78 is little-endian
   std::cout << std::hex <<
             static_cast<int>
             (

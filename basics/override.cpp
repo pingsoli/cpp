@@ -18,6 +18,12 @@ public:
   virtual void mf4() const {
     std::cout << "Base::void mf4() const" << '\n';
   }
+
+  // what if destructor is nonvirutal ?
+  // the derived class's destructor will not be called, which leads memory leak.
+  virtual ~Base() {
+    std::cout << "~Base()" << '\n';
+  }
 };
 
 class Derived : public Base {
@@ -37,16 +43,22 @@ public:
   void mf4() const override { // adding "virtual" is ok, but not necessary.
     std::cout << "Derived::void mf4() const" << '\n';
   }
+
+  virtual ~Derived() {
+    std::cout << "~Derived" << '\n';
+  }
 };
 
 int main(int argc, char *argv[])
 {
-  std::unique_ptr<Base> pb = std::make_unique<Derived>();
+  {
+    std::unique_ptr<Base> pb = std::make_unique<Derived>();
 
-  pb->mf1();
-  pb->mf2(1);
-  pb->mf3();
-  pb->mf4();
+    pb->mf1();
+    pb->mf2(1);
+    pb->mf3();
+    pb->mf4();
+  }
 
   return 0;
 }

@@ -25,22 +25,23 @@ void doSomething(char *ptr, std::size_t num) {
 
 int main(int argc, char *argv[])
 {
-  // {
-  //   // the size of vector itself is constant.
-  //   std::vector<int> vi;
-  //
-  //   std::cout << "vi size: " << sizeof(vi) << '\n';
-  //   vi.push_back(1); // push some data to vector
-  //   std::cout << "vi size after pushing data: " << sizeof(vi) << '\n';
-  //
-  //   // as we can see, the vector's size is constant.
-  //   // The storage of the vector is handled automatically, and the elements on
-  //   // vector is stored contiguously.
-  //   //
-  //   // use reserve() function to eliminate reallocations if the number of elements
-  //   // is known beforehand.
-  // }
-  //
+  {
+/*     // std::vector's size, vector manage the real data dynamically. */
+    // // the size of vector itself is constant.
+    // std::vector<int> vi;
+    //
+    // std::cout << "size: " << sizeof(vi) << '\n';
+    // vi.push_back(1); // push some data to vector
+    // std::cout << "vi size after pushing data: " << sizeof(vi) << '\n';
+    //
+    // // as we can see, the vector's size is constant.
+    // // The storage of the vector is handled automatically, and the elements on
+    // // vector is stored contiguously.
+    // //
+    // // use reserve() function to eliminate reallocations if the number of elements
+    /* // is known beforehand. */
+  }
+
   // {
   //   // make std::vector compatible with legacy C APIs
   //   std::vector<int> arr{1, 2, 3, 4, 5, 6};
@@ -112,35 +113,51 @@ int main(int argc, char *argv[])
   //   std::cout << vi.size() << ' ' << vi.capacity() << '\n';
   // }
   //
-  // {
-  //   // erase-remove idiom, remove same elements from vector, string, deque.
-  //   // use list::remove for std::list.
-  //   // use the xxx.erase() for associated container.
-  //   std::vector<int> vi;
-  //
-  //   vi.push_back(1);
-  //   vi.push_back(2);
-  //   vi.push_back(2);
-  //   vi.push_back(2);
-  //   vi.push_back(10);
-  //   vi.push_back(2);
-  //   vi.push_back(3);
-  //
-  //   for (auto it = vi.begin(); it != vi.end(); ++it)
-  //     std::cout << &(*it) << ' ';
-  //   std::cout << '\n';
-  //
-  //   // vi.erase(vi.end() - 1, vi.end());
-  //   auto iter = std::remove(vi.begin(), vi.end(), 2);
-  //   std::cout << &(*iter) << '\n';
-  //   vi.erase(iter, vi.end());
-  //
-  //   // vi.erase(std::remove(vi.begin(), vi.end(), 2), vi.end());
-  //
-  //   for (auto it = vi.begin(); it != vi.end(); ++it)
-  //     std::cout << &(*it) << ' ';
-  //   std::cout << '\n';
-  // }
+  {
+    // erase-remove idiom, remove same elements from vector, string, deque.
+    // use list::remove for std::list.
+    // use the xxx.erase() for associated container.
+    // many elements have the same value '2', remove 2 from vector.
+    // it's not continuous. The magic is std::remove().
+    std::vector<int> vi{1, 2, 2, 2, 10, 2, 3};
+
+    for (auto it = vi.begin(); it != vi.end(); ++it)
+      std::cout << *it << ' ';
+    std::cout << '\n';
+
+    auto iter = std::remove(vi.begin(), vi.end(), 2);
+    std::cout << *iter << '\n';
+    vi.erase(iter, vi.end());
+
+    // more consice way.
+    // vi.erase(std::remove(vi.begin(), vi.end(), 2), vi.end());
+
+    // print final result
+    for (auto it = vi.begin(); it != vi.end(); ++it)
+      std::cout << *it << ' ';
+    std::cout << '\n';
+  }
+
+  {
+/*     // Remove all elements in vector */
+    // // two ways: 1) swap with empty instance; 2) clear builtin method.
+    // std::vector<int> vi{1, 2, 3, 4, 5, 6, 7, 8};
+    //
+    // std::cout << "original size: " << vi.size()
+    //   << ", capacity: " << vi.capacity() << '\n';
+    //
+    // // both size and capacity are 0.
+    // std::vector<int>().swap(vi);
+    //
+    // // vi.clear(); // the capacity is not decreased.
+    // // vi.shrink_to_fit(); // decrease the capacity to 0, and destroy the space.
+    //
+    // for (int i = 0; i < vi.capacity(); ++i)
+    //   std::cout << vi[i] << '\n';
+    //
+    // std::cout << "size: " << vi.size()
+      /* << ", capacity: " << vi.capacity() << '\n'; */
+  }
 
   {
     // // insert a list at the end of vector
@@ -186,36 +203,36 @@ int main(int argc, char *argv[])
   }
 
   {
-    // uniform initalization of vector.
-    std::vector<int> vi{100, 10};
-    std::vector<int> vi1(10, 20); // it's not uniform initialization.
-
-    for (auto& v: vi)
-      std::cout << v << '\n';
+    // // uniform initalization of vector.
+    // std::vector<int> vi{100, 10};
+    // std::vector<int> vi1(10, 20); // it's not uniform initialization.
+    //
+    // for (auto& v: vi)
+    //   std::cout << v << '\n';
   }
 
   {
-    // insert a new value from a const_iterator.
-    std::vector<int> vi = {1, 2, 3, 4, 5, 6};
-    using VIConstIter = std::vector<int>::const_iterator;
-
-    VIConstIter it = std::find(vi.cbegin(), vi.cend(), 3);
-    vi.insert(it, 10); // why does this work ? it is const_iterator.
-    // Because a const_iterator prevents you from modifying the element that
-    // iterator points to, it does not prevent you from modifying the container
-    // itself.
-
-    std::copy(vi.cbegin(), vi.cend(), std::ostream_iterator<int>(std::cout, " "));
-    std::cout << '\n';
+    // // insert a new value from a const_iterator.
+    // std::vector<int> vi = {1, 2, 3, 4, 5, 6};
+    // using VIConstIter = std::vector<int>::const_iterator;
+    //
+    // VIConstIter it = std::find(vi.cbegin(), vi.cend(), 3);
+    // vi.insert(it, 10); // why does this work ? it is const_iterator.
+    // // Because a const_iterator prevents you from modifying the element that
+    // // iterator points to, it does not prevent you from modifying the container
+    // // itself.
+    //
+    // std::copy(vi.cbegin(), vi.cend(), std::ostream_iterator<int>(std::cout, " "));
+    // std::cout << '\n';
   }
 
   {
-    std::vector<int> vi(4);
-    std::cout << vi.capacity() << '\n';
-
-    // Bad idea.
-    std::vector<int> vi2(-1);
-    std::cout << vi2.capacity() << '\n';
+    // std::vector<int> vi(4);
+    // std::cout << vi.capacity() << '\n';
+    //
+    // // Bad idea.
+    // std::vector<int> vi2(-1);
+    // std::cout << vi2.capacity() << '\n';
   }
 
   return 0;

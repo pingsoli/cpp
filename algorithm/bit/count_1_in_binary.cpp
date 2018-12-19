@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Count 1 in binary
-// Count how many 1 in binary representation of a 32-bit integer
+// Count '1' in binary
+// Count how many '1's in binary representation of a 32-bit integer
 //
 // Example
 // Given 32, return 1.
