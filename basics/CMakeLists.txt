@@ -38,7 +38,12 @@ add_executable(vector_growth                              vector_growth.cpp)
 add_executable(volatile                                   volatile.cpp)
 add_executable(random_number                              random_number.cpp)
 add_executable(data_alignment                             data_alignment.cpp)
+
+# set(CMAKE_VERBOSE_MAKEFILE ON)
 add_executable(vptr                                       vptr.cpp)
+# Check the output file in 'CMakeFiles/CMakeFiles/vptr.dir' directory.
+set_target_properties(vptr PROPERTIES COMPILE_FLAGS "-fdump-class-hierarchy")
+
 add_executable(number_system_conversion                   number_system_conversion.cpp)
 add_executable(two_star_pointer                           two_star_pointer.cpp)
 add_executable(virtuality                                 virtuality.cpp)
@@ -59,7 +64,6 @@ add_executable(know_variable_type know_variable_type.cpp)
 add_executable(auto auto.cpp)
 add_executable(enum enum.cpp)
 add_executable(override override.cpp)
-add_executable(helloworld helloworld.cpp)
 add_executable(constructor constructor.cpp)
 add_executable(lambda lambda.cpp)
 add_executable(variadic_template variadic_template.cpp)
@@ -77,3 +81,6 @@ add_executable(try_catch try_catch.cpp)
 add_executable(diamond_problem_of_multiple_inheritance diamond_problem_of_multiple_inheritance.cpp)
 
 add_executable(final_keyword final_keyword.cpp)
+
+add_executable(encode_varint32 encode_varint32.cpp)
+add_executable(short_string_optimization short_string_optimization.cpp)

@@ -1,0 +1,42 @@
+Vtable for Vehicle
+Vehicle::_ZTV7Vehicle: 4 entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI7Vehicle)
+16    (int (*)(...))Vehicle::apply_break
+24    (int (*)(...))Vehicle::apply_horn
+
+Class Vehicle
+   size=8 align=8
+   base size=8 base align=8
+Vehicle (0x0x7f4c9048f780) 0 nearly-empty
+    vptr=((& Vehicle::_ZTV7Vehicle) + 16)
+
+Vtable for Car
+Car::_ZTV3Car: 4 entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI3Car)
+16    (int (*)(...))Vehicle::apply_break
+24    (int (*)(...))Car::apply_horn
+
+Class Car
+   size=8 align=8
+   base size=8 base align=8
+Car (0x0x7f4c904c5a28) 0 nearly-empty
+    vptr=((& Car::_ZTV3Car) + 16)
+  Vehicle (0x0x7f4c904cc540) 0 nearly-empty
+      primary-for Car (0x0x7f4c904c5a28)
+
+Vtable for Trunk
+Trunk::_ZTV5Trunk: 4 entries
+0     (int (*)(...))0
+8     (int (*)(...))(& _ZTI5Trunk)
+16    (int (*)(...))Trunk::apply_break
+24    (int (*)(...))Vehicle::apply_horn
+
+Class Trunk
+   size=8 align=8
+   base size=8 base align=8
+Trunk (0x0x7f4c904c5b60) 0 nearly-empty
+    vptr=((& Trunk::_ZTV5Trunk) + 16)
+  Vehicle (0x0x7f4c904cc6c0) 0 nearly-empty
+      primary-for Trunk (0x0x7f4c904c5b60)

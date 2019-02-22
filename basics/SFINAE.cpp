@@ -1,6 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 // tag dispatch
-// SFINAE -> Substitution Is Not An Error
+// SFINAE -> Substitution Failure Is Not An Error
+//
+// What is SFINE ?
 //
 // the following example just give the concept, not implement totally.
 //
@@ -78,6 +80,32 @@ enable_if_t<is_floating_point<T>::value, bool> equals(T lhs, T rhs)
 
 ////////////////////////////////////////////////////////////////////////////////
 
+// Check class whether contains specific functions ?
+#include <utility>
+
+template<typename T>
+struct has_member_foo
+{
+private:
+  template<typename U>
+    static auto Check(int) -> decltype(std::declval<U>().foo(), std::true_type());
+  template<typename U>
+    static std::false_type Check(...);
+
+public:
+  enum { value = std::is_same<decltype(Check<T>(0)), std::true_type>::value };
+};
+
+struct Test {
+  void foo() { std::cout << "Test::foo()" << '\n'; }
+};
+
+struct AnotherTest {
+  void test() { std::cout << "AnotherTest::test()" << '\n'; }
+};
+
+////////////////////////////////////////////////////////////////////////////////
+
 int main(int argc, char *argv[])
 {
   std::cout << equals(1, 1) << '\n'; // true
@@ -91,6 +119,21 @@ int main(int argc, char *argv[])
   // there are two ways to solve it.
   // 1) tag dispatch
   // 2) SFINAE
+
+  {
+    // check class whether has member function ?
+    if (has_member_foo<Test>::value) {
+      std::cout << "Test has foo function" << '\n';
+    } else {
+      std::cout << "Test has not foo function" << '\n';
+    }
+
+    if (has_member_foo<AnotherTest>::value) {
+      std::cout << "AnotherTest has foo function" << '\n';
+    } else {
+      std::cout << "AnotherTest has not foo function" << '\n';
+    }
+  }
 
   return 0;
 }

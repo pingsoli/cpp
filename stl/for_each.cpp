@@ -1,66 +1,48 @@
-
-#include <string>
 #include <algorithm>
-#include <numeric>
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-uint32_t rotl(uint32_t value, unsigned int count) {
-  const uint32_t mask =
-    (__CHAR_BIT__ * sizeof(value) - 1);
-  count &= mask;
-  return (value << count) |
-         (value >> ((-count)&mask));
-}
-
-uint32_t hash_char(uint32_t hash, char c)
+// Encapsulate std::for_each ourself
+namespace ranges
 {
-  hash = rotl(hash, c); // circular rotate left
-  hash ^= c;
-  return hash;
-}
-
-struct HashString {
-  void operator() (const std::string& s) {
-    hash = std::accumulate(s.begin(), s.end(), hash, hash_char);
+  template<typename Range, typename Function>
+  Function for_each(Range& range, Function f)
+  {
+    return std::for_each(begin(range), end(range), f);
   }
-  uint32_t hash = 0;
-};
-
-template <typename C>
-uint32_t hash_all_strings(const C& v) {
-  const auto hasher = for_each(v.begin(), v.end(), HashString());
-  return hasher.hash;
-}
-
-void test_for_each_hash() {
-  std::vector<std::string> v{"one", "two", "three", "four"};
-  uint32_t hash = hash_all_strings(v);
-  std::cout << "Hash: " << hash << '\n';
-}
-
-uint32_t hash_string(const std::string& s) {
-  return std::accumulate(s.begin(), s.end(), 0, hash_char);
-}
-
-template <typename C>
-std::vector<uint32_t> hash_each_string(const C& v) {
-  std::vector<uint32_t> res;
-  std::transform(v.begin(), v.end(), std::back_inserter(res), hash_string);
-  return res;
-}
-
-void test_transform_hash() {
-  std::vector<std::string> v{"one", "two", "Three", "four", "five"};
-  auto res = hash_each_string(v);
-  std::cout << "Hash: ";
-  for_each(res.begin(), res.end(), [](uint32_t rh) { std::cout << rh << ' '; });
-  std::cout << '\n';
 }
 
 int main(int argc, char *argv[])
 {
-  test_for_each_hash();
-  test_transform_hash();
+  std::vector<int> vi = {-1, 0, 1};
+
+  // Don't modify the element of container
+  auto displayAsInstruction = [] (int number) {
+    if (number > 0)
+      std::cout << '+' << number << '\n';
+    else if (number < 0)
+      std::cout << number << '\n';
+    else if (number == 0)
+      std::cout << "nop" << '\n';
+  };
+
+  // Modify the element of container using reference
+  auto doubler = [] (int& number) {
+    number *= 2;
+  };
+
+  auto displayAllElements = [] (int number) {
+    std::cout << number << '\n';
+  };
+
+  std::for_each(vi.begin(), vi.end(), displayAsInstruction);
+  std::for_each(vi.begin(), vi.end(), doubler);
+  std::for_each(vi.begin(), vi.end(), displayAllElements);
+
+  // more concise way to achive the above code
+  ranges::for_each(vi, displayAsInstruction);
+  ranges::for_each(vi, doubler);
+  ranges::for_each(vi ,displayAllElements);
+
   return 0;
 }

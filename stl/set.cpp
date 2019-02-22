@@ -6,9 +6,11 @@
 
 int main(int argc, char *argv[])
 {
+
+  // Specify comparator(case insentive) for set
   {
-    // operator== and operator< in associative container
-    // understand equality and equivalence.
+    // operator== and operator< to make associative container understand
+    // equality and equivalence.
 
     struct InsensitiveCompare {
       bool operator()(const std::string& a, const std::string& b) const {
@@ -25,71 +27,78 @@ int main(int argc, char *argv[])
     // constexpr bool operator()(const T &lhs, const T &rhs) const {
     //   return lhs < rhs;
     // }
-    // std::set<std::string, InsensitiveCompare> str;
-    std::set<std::string> str;
+    std::set<std::string, InsensitiveCompare> str;
+    // std::set<std::string> str;
 
     str.insert("pingsoli");
-    str.insert("PingsOli"); // insert successfully ?
+    str.insert("PingsOli"); // won't be inserted when using case insensitive comparator of std::set
     str.insert("hello");
     str.insert("world");
 
-    for (auto it = str.begin(); it != str.end(); ++it)
-      std::cout << *it << ' ';
-    std::cout << std::endl;
-
-    // std::copy(str.begin(), str.end(),
-    //     std::ostream_iterator<std::string>(std::cout, " "));
-    // std::cout << '\n';
+    for (const auto& s : str) std::cout << s << '\n';
 
     // if we find "PingsOli" from set
     if (std::find(str.begin(), str.end(), "PingsOli") != str.end())
       std::cout << "Found" << '\n';
     else
       std::cout << "Not Found" << '\n';
+
+    return 0;
+  }
+
+  // std::set use operator< to do comparison
+  {
+    // specify operator< within class to do comparasion in std::set
+    // struct Foo {
+    //   int val1;
+    //   int val2;
+    //
+    //   Foo(int v1, int v2) : val1(v1), val2(v2) {}
+    //   bool operator<(const Foo& foo) const { return val2 < foo.val2; }
+    // };
+    //
+    // std::multiset<Foo> ms;
+    // ms.insert(Foo(1, 6));
+    // ms.insert(Foo(2, 5));
+    // ms.insert(Foo(3, 4));
+    // ms.insert(Foo(1, 4));
+    //
+    // for (auto const &foo : ms)
+    //   std::cout << foo.val1 << " " << foo.val2 << '\n';
+    //
+    // return 0;
   }
 
   {
-    // std::set<std::string> s;
-    //
-    // s.insert("hello");
-    // s.insert("world");
-    // s.insert("goodbye");
-    //
-    // std::copy(s.begin(), s.end(),
-    //     std::ostream_iterator<std::string>(std::cout, "\n"));
-    // std::cout << '\n';
-  }
-
-  {
-    // define our compare function in associative container
-    //
-    // the below try is illegal.
-    // bool stringPtrLess(const std::string* ps1, const std::string* ps2) {
-    //   return *ps1 < *ps2;
-    // }
-    struct stringPtrLess {
-      bool operator()(const std::string* ps1, const std::string* ps2) const {
-        return *ps1 < *ps2;
-      }
-    };
-
-    // make the template
-    // struct DereferenceLess {
-    //   template <typename PtrType>
-    //   bool operator() (PtrType pt1, PtrType pt2) const {
-    //     return *pt1 < *pt2;
+    // // define our compare function in associative container
+    // //
+    // // the below try is illegal.
+    // // bool stringPtrLess(const std::string* ps1, const std::string* ps2) {
+    // //   return *ps1 < *ps2;
+    // // }
+    // struct stringPtrLess {
+    //   bool operator()(const std::string* ps1, const std::string* ps2) const {
+    //     return *ps1 < *ps2;
     //   }
     // };
-
-    // std::set<std::string*, DereferenceLess> ssp;
-    std::set<std::string*, stringPtrLess> ssp;
-    ssp.insert(new std::string("hello"));
-    ssp.insert(new std::string("world"));
-    ssp.insert(new std::string("pingsoli"));
-    ssp.insert(new std::string("test"));
-
-    for (auto it = ssp.cbegin(); it != ssp.cend(); ++it)
-      std::cout << **it << '\n';
+    //
+    // // make the template
+    // // struct DereferenceLess {
+    // //   template <typename PtrType>
+    // //   bool operator() (PtrType pt1, PtrType pt2) const {
+    // //     return *pt1 < *pt2;
+    // //   }
+    // // };
+    //
+    // // std::set<std::string*, DereferenceLess> ssp;
+    // std::set<std::string*, stringPtrLess> ssp;
+    // ssp.insert(new std::string("hello"));
+    // ssp.insert(new std::string("world"));
+    // ssp.insert(new std::string("pingsoli"));
+    // ssp.insert(new std::string("test"));
+    //
+    // for (auto it = ssp.cbegin(); it != ssp.cend(); ++it)
+    //   std::cout << **it << '\n';
   }
 
   {

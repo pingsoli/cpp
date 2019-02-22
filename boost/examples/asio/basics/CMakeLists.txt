@@ -4,13 +4,18 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_BUILD_TYPE Debug)
 
 # Boost Configure
-set(Boost_USE_STATIC_LIBS    ON)
+set(Boost_NO_SYSTEM_PATH true)
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
 set(BOOST_ROOT /usr/local/boost)
 
-find_package(Boost 1.66.0)
+find_package(Boost REQUIRED)
 if (Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
 endif()
+
+# add_definitions( -DBOOST_ALL_NO_LIB )
+# add_definitions( -DBOOST_ALL_DYN_LINK )
 
 ##############################
 add_executable(sync_timer
@@ -33,7 +38,7 @@ target_link_libraries(async_timer
   ${BOOST_ROOT}/lib/libboost_date_time.a
   ${BOOST_ROOT}/lib/libboost_system.a
   ${BOOST_ROOT}/lib/libboost_thread.a
-  pthread
+  -pthread
 )
 
 ##############################

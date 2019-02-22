@@ -4,7 +4,7 @@
 int main(int argc, char *argv[])
 {
   {
-    // std::string is fixed size.
+    // std::string type is a fixed size, but the real data not.
     std::string str("hello");
 
     std::cout << "str instance size: " << sizeof(str) << '\n'; // 32
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
   }
 
   {
-    // multi strings share same memory palce
+    // multiple strings share same memory palce
     std::string s1 = "hello world";
     std::string s2 = s1;
 
@@ -52,6 +52,24 @@ int main(int argc, char *argv[])
     s2 = "good bye";
     std::cout << s1 << '\n';
     std::cout << s2 << '\n';
+  }
+
+  {
+    // null-bytes in std::string
+    std::string null_str("\x00");
+    std::cout << null_str.length() << '\n'; // length is 0
+
+    // what if we want to make std::string distinguish null bytes
+    std::string str("");
+    str.push_back('\0');
+    std::cout << str.length() << '\n'; // length is 1
+
+    // in C++14, there is a better way
+    using namespace std::string_literals;
+    std::string a = "\0"s; // length is 1
+    std::string aa = "\0\0"s; // length is 2
+    std::cout << "a length: " << a.length()
+      << "\naa length: " << aa.length() << '\n';
   }
 
   return 0;
